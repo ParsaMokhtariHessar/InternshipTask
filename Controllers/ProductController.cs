@@ -10,58 +10,59 @@ namespace InternshipTask.Controllers
     [Route("api/[controller]")]
     public class ProductController : ControllerBase
     {
-        private readonly IProductService _ProductService;
+        private readonly IProductService _productService;
         public ProductController(IProductService ProductService)
         {
-            _ProductService = ProductService;
+            _productService = ProductService;
             
         }
 
         [HttpGet]
         [Route("GetAll")]
-        public ActionResult<GetProductDto> GetProducts()
+        public async Task<ActionResult<ServiceResponse<GetProductDto>>> GetProducts()
         {
-            return Ok(_ProductService.GetAllProducts());
+            return Ok(await _productService.GetAllProducts());
         }
         [HttpGet]
         [Route("GetSingle/{id}")]
-        public ActionResult<GetProductDto> GetSingleProduct(int id)
+        public async Task<ActionResult<ServiceResponse<GetProductDto>>> GetSingleProduct(int id)
         {
-            return Ok(_ProductService.GetProductById(id));
+            return Ok(await _productService.GetProductById(id));
         }
         [HttpPost]
         [Route("PostSingle")]
-        public ActionResult<GetProductDto> AddProduct(AddProductDto newProduct)
+        public async Task<ActionResult<ServiceResponse<GetProductDto>>> AddProduct(AddProductDto newProduct)
         {            
-            return Ok(_ProductService.AddProduct(newProduct));
+            return Ok(await _productService.AddProduct(newProduct));
         }
         [HttpPut]
         [Route("UpdateProduct")]
-        public ActionResult<GetProductDto> UpdateProduct(UpdateProductDto UpdatedProduct)
-        {      
-            var _UpdatedProduct =_ProductService.UpdateProduct(UpdatedProduct); 
-            if(_UpdatedProduct is null)
+        public async Task<ActionResult<ServiceResponse<GetProductDto>>> UpdateProduct(UpdateProductDto UpdatedProduct)
+        { 
+            var Response = await _productService.UpdateProduct(UpdatedProduct);      
+            if(Response.Data is null)
             {
-                return NotFound(_UpdatedProduct);
+                return NotFound(Response);
             }
             else
             {
-               return Ok(_UpdatedProduct); 
-            }    
+                return Ok(Response);
+            }
+
             
         }
         [HttpDelete]
         [Route("DeleteSingle/{id}")]
-        public ActionResult<GetProductDto> DeleteSingleProduct(int id)
+        public async Task<ActionResult<ServiceResponse<GetProductDto>>> DeleteSingleProduct(int id)
         {
-            var _DeletedProduct =_ProductService.DeleteProduct(id); 
-            if(_DeletedProduct is null)
+            var Response = await _productService.DeleteProduct(id);      
+            if(Response.Data is null)
             {
-                return NotFound(_DeletedProduct);
+                return NotFound(Response);
             }
             else
             {
-               return Ok(_DeletedProduct); 
+                return Ok(Response);
             }
         }
     }

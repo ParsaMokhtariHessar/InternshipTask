@@ -8,11 +8,11 @@ namespace InternshipTask.Services.ProductService
 {
     public interface IProductService
     {
-        List<GetProductDto> GetAllProducts();
-        GetProductDto GetProductById(int id);
-        List<GetProductDto> AddProduct(AddProductDto newProduct);
-        GetProductDto UpdateProduct(UpdateProductDto UpdatedProduct);
-        List<GetProductDto> DeleteProduct(int id);
+        Task<ServiceResponse<List<GetProductDto>>> GetAllProducts();
+        Task<ServiceResponse<GetProductDto>> GetProductById(int id);
+        Task<ServiceResponse<List<GetProductDto>>> AddProduct(AddProductDto newProduct);
+        Task<ServiceResponse<GetProductDto>> UpdateProduct(UpdateProductDto UpdatedProduct);
+        Task<ServiceResponse<List<GetProductDto>>> DeleteProduct(int id);
 
     }
 }

@@ -12,6 +12,7 @@ namespace InternshipTask.Services.ProductService
         GetProductDto GetProductById(int id);
         List<GetProductDto> AddProduct(AddProductDto newProduct);
         GetProductDto UpdateProduct(UpdateProductDto UpdatedProduct);
+        List<GetProductDto> DeleteProduct(int id);
 
     }
 }

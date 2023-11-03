@@ -50,5 +50,19 @@ namespace InternshipTask.Controllers
             }    
             
         }
+        [HttpDelete]
+        [Route("DeleteSingle/{id}")]
+        public ActionResult<GetProductDto> DeleteSingleProduct(int id)
+        {
+            var _DeletedProduct =_ProductService.DeleteProduct(id); 
+            if(_DeletedProduct is null)
+            {
+                return NotFound(_DeletedProduct);
+            }
+            else
+            {
+               return Ok(_DeletedProduct); 
+            }
+        }
     }
 }

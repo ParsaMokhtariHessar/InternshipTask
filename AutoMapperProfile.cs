@@ -11,6 +11,7 @@ namespace InternshipTask
         {
             CreateMap<Product,GetProductDto>();
             CreateMap<AddProductDto,Product>();
+            // CreateMap<UpdateProductDto,Product>();
         }
         
     }

@@ -42,19 +42,25 @@ namespace InternshipTask.Services.ProductService
         {
             
 
-                var Product = Products.FirstOrDefault(c => c.Id == UpdatedProduct.Id);
+            var Product = Products.FirstOrDefault(c => c.Id == UpdatedProduct.Id);
+            if(Product is null)
+                throw new Exception($"Product with Id '{UpdatedProduct.Id}' not found!");
+            // _mapper.Map(UpdatedProduct,Product); Couldn't Implement try later!
+            Product.Name = UpdatedProduct.Name;
+            Product.ProductDate = UpdatedProduct.ProductDate;
+            Product.ManufacturePhone = UpdatedProduct.ManufacturePhone;
+            Product.ManufactureEmail = UpdatedProduct.ManufactureEmail;
+            Product.IsAvailable = UpdatedProduct.IsAvailable;
+            return _mapper.Map<GetProductDto>(Product);                        
+        }
 
-                Product.Name = UpdatedProduct.Name;
-                Product.ProductDate = UpdatedProduct.ProductDate;
-                Product.ManufacturePhone = UpdatedProduct.ManufacturePhone;
-                Product.ManufactureEmail = UpdatedProduct.ManufactureEmail;
-                Product.IsAvailable = UpdatedProduct.IsAvailable;
-                return _mapper.Map<GetProductDto>(Product);
+        public List<GetProductDto> DeleteProduct(int id)
+        {
+            var Product = Products.First(c => c.Id == id) ?? throw new Exception($"Product with Id '{id}' not found!");
 
-            
-                   
-              
-                        
+            // _mapper.Map(UpdatedProduct,Product); Couldn't Implement try later!
+            Products.Remove(Product);
+            return Products.Select(c => _mapper.Map<GetProductDto>(c)).ToList();
         }
     }
 }

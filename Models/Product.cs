@@ -8,7 +8,7 @@ namespace InternshipTask.Models
         public string? ManufacturePhone {get; set;} = "09934463133";
         public string? ManufactureEmail {get; set;} = "MJ@Parsa.com";
         public bool IsAvailable {get; set;} = true;
-        public User Creator {get; set;}       
+        public User? Creator {get; set;}       
     }
 }
     

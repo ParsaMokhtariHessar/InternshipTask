@@ -40,13 +40,21 @@ namespace InternshipTask.Services.ProductService
 
         public GetProductDto UpdateProduct(UpdateProductDto UpdatedProduct)
         {
-            var Product = Products.FirstOrDefault(c => c.Id == UpdatedProduct.Id);
-            Product.Name = UpdatedProduct.Name;
-            Product.ProductDate = UpdatedProduct.ProductDate;
-            Product.ManufacturePhone = UpdatedProduct.ManufacturePhone;
-            Product.ManufactureEmail = UpdatedProduct.ManufactureEmail;
-            Product.IsAvailable = UpdatedProduct.IsAvailable;
-            return _mapper.Map<GetProductDto>(Product);
+            
+
+                var Product = Products.FirstOrDefault(c => c.Id == UpdatedProduct.Id);
+
+                Product.Name = UpdatedProduct.Name;
+                Product.ProductDate = UpdatedProduct.ProductDate;
+                Product.ManufacturePhone = UpdatedProduct.ManufacturePhone;
+                Product.ManufactureEmail = UpdatedProduct.ManufactureEmail;
+                Product.IsAvailable = UpdatedProduct.IsAvailable;
+                return _mapper.Map<GetProductDto>(Product);
+
+            
+                   
+              
+                        
         }
     }
 }

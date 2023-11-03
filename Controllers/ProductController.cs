@@ -38,8 +38,17 @@ namespace InternshipTask.Controllers
         [HttpPut]
         [Route("UpdateProduct")]
         public ActionResult<GetProductDto> UpdateProduct(UpdateProductDto UpdatedProduct)
-        {            
-            return Ok(_ProductService.UpdateProduct(UpdatedProduct));
+        {      
+            var _UpdatedProduct =_ProductService.UpdateProduct(UpdatedProduct); 
+            if(_UpdatedProduct is null)
+            {
+                return NotFound(_UpdatedProduct);
+            }
+            else
+            {
+               return Ok(_UpdatedProduct); 
+            }    
+            
         }
     }
 }

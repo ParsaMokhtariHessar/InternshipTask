@@ -10,28 +10,36 @@ namespace InternshipTask.Controllers
     [Route("api/[controller]")]
     public class ProductController : ControllerBase
     {
-        private static List<Product> Products = new List<Product>{
-            new Product(),
-            new Product { Id=1 ,Name = "Pouriya"}
-        };
+        private readonly IProductService _ProductService;
+        public ProductController(IProductService ProductService)
+        {
+            _ProductService = ProductService;
+            
+        }
+
         [HttpGet]
         [Route("GetAll")]
-        public ActionResult<Product> GetProducts()
+        public ActionResult<GetProductDto> GetProducts()
         {
-            return Ok(Products);
+            return Ok(_ProductService.GetAllProducts());
         }
         [HttpGet]
         [Route("GetSingle/{id}")]
-        public ActionResult<Product> GetSingleProduct(int id)
+        public ActionResult<GetProductDto> GetSingleProduct(int id)
         {
-            return Ok(Products.FirstOrDefault(c => c.Id == id ));
+            return Ok(_ProductService.GetProductById(id));
         }
         [HttpPost]
         [Route("PostSingle")]
-        public ActionResult<Product> AddProduct(Product newProduct)
-        {
-            Products.Add(newProduct);
-            return Ok(Products);
+        public ActionResult<GetProductDto> AddProduct(AddProductDto newProduct)
+        {            
+            return Ok(_ProductService.AddProduct(newProduct));
+        }
+        [HttpPut]
+        [Route("UpdateProduct")]
+        public ActionResult<GetProductDto> UpdateProduct(UpdateProductDto UpdatedProduct)
+        {            
+            return Ok(_ProductService.UpdateProduct(UpdatedProduct));
         }
     }
 }

@@ -23,7 +23,7 @@ namespace InternshipTask.Services.ProductService
             return serviceResponse;
             
         }
-        public async Task<ServiceResponse<GetProductDto>> GetProductById(int id)
+        public async Task<ServiceResponse<List<GetProductDto>>> GetProductById(int id)
         {
             var serviceResponse = new ServiceResponse<List<GetProductDto>>();
             var dbProducts = await _context.Products.ToListAsync();
@@ -43,7 +43,7 @@ namespace InternshipTask.Services.ProductService
 
         public async Task<ServiceResponse<GetProductDto>> UpdateProduct(UpdateProductDto updatedProduct)
         {
-            var serviceResponse = new ServiceResponse<List<GetProductDto>>();
+            var serviceResponse = new ServiceResponse<GetProductDto>();           
             try
             {              
                 var product = await _context.Products.FirstOrDefaultAsync(c => c.Id == updatedProduct.Id);

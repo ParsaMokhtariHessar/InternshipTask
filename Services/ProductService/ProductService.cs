@@ -34,6 +34,22 @@ namespace InternshipTask.Services.ProductService
         public async Task<ServiceResponse<List<GetProductDto>>> AddProduct(AddProductDto newProduct)
         {
             var serviceResponse = new ServiceResponse<List<GetProductDto>>();
+            // Check if ManufactureEmail is unique
+            if (await _context.Products.AnyAsync(p => p.ManufactureEmail == newProduct.ManufactureEmail))
+            {
+                serviceResponse.Success = false;
+                serviceResponse.Message = "ManufactureEmail must be unique.";
+                return serviceResponse;
+            }
+
+            // Check if ProductDate is unique
+            if (await _context.Products.AnyAsync(p => p.ProductDate == newProduct.ProductDate))
+            {
+                serviceResponse.Success = false;
+                serviceResponse.Message = "ProductDate must be unique.";
+                return serviceResponse;
+            }
+            
             var NewProduct = _mapper.Map<Product>(newProduct);
             _context.Products.Add(NewProduct);
             await _context.SaveChangesAsync();           

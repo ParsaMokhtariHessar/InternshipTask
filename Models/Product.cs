@@ -1,3 +1,4 @@
+namespace InternshipTask;
 public class Product
 {
     public int Id {get; set;}

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 
@@ -31,7 +32,7 @@ namespace InternshipTask.Services.ProductService
             return serviceResponse;
 
         }
-        public async Task<ServiceResponse<List<GetProductDto>>> AddProduct(AddProductDto newProduct)
+        public async Task<ServiceResponse<List<GetProductDto>>> AddProduct(AddProductDto newProduct,int userId)
         {
             var serviceResponse = new ServiceResponse<List<GetProductDto>>();
             // Check if ManufactureEmail is unique
@@ -51,20 +52,28 @@ namespace InternshipTask.Services.ProductService
             }
             
             var NewProduct = _mapper.Map<Product>(newProduct);
+            NewProduct.Creator = await _context.Users.FirstOrDefaultAsync(c=>c.Id==userId);
             _context.Products.Add(NewProduct);
             await _context.SaveChangesAsync();           
             serviceResponse.Data = await _context.Products.Select(c=>_mapper.Map<GetProductDto>(c)).ToListAsync();
             return serviceResponse;
         }  
 
-        public async Task<ServiceResponse<GetProductDto>> UpdateProduct(UpdateProductDto updatedProduct)
+        public async Task<ServiceResponse<GetProductDto>> UpdateProduct(UpdateProductDto updatedProduct, int userId)
         {
-            var serviceResponse = new ServiceResponse<GetProductDto>();           
+            var serviceResponse = new ServiceResponse<GetProductDto>();
+                                
             try
             {              
                 var product = await _context.Products.FirstOrDefaultAsync(c => c.Id == updatedProduct.Id);
                 if(product is null)
                     throw new Exception($"Product with Id '{updatedProduct.Id}' not found!");
+                // Check if the user ID matches the creator ID
+                if (product.Creator.Id != userId)
+                {
+                    throw new Exception("You don't have permission to update this product.");
+                    // Alternatively, you can set the serviceResponse properties accordingly and return here
+                }
                 // _mapper.Map(UpdatedProduct,Product); Couldn't Implement try later!
                 // _mapper.Map<Product>(UpdatedProduct);
                 product.Name = updatedProduct.Name;

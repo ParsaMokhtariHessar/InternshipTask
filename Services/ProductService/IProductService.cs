@@ -10,8 +10,8 @@ namespace InternshipTask.Services.ProductService
     {
         Task<ServiceResponse<List<GetProductDto>>> GetAllProducts();
         Task<ServiceResponse<List<GetProductDto>>> GetProductById(int id);
-        Task<ServiceResponse<List<GetProductDto>>> AddProduct(AddProductDto newProduct);
-        Task<ServiceResponse<GetProductDto>> UpdateProduct(UpdateProductDto UpdatedProduct);
+        Task<ServiceResponse<List<GetProductDto>>> AddProduct(AddProductDto newProduct,int userId);
+        Task<ServiceResponse<GetProductDto>> UpdateProduct(UpdateProductDto UpdatedProduct,int userId);
         Task<ServiceResponse<List<GetProductDto>>> DeleteProduct(int id);
 
     }

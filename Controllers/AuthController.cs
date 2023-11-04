@@ -31,6 +31,18 @@ namespace InternshipTask.Controllers
             return Ok(response);
         }
 
-
+        [HttpPost]
+        [Route("Login")]
+        public async Task<IActionResult> Login(UserLoginDto request)
+        {
+            ServiceResponse<string> response = await _authRepo.Login(
+                request.UserName, request.Password
+            );
+            if (!response.Success)
+            {
+                return BadRequest(response);
+            }
+            return Ok(response);
+        }
     }
 }

@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.PortableExecutable;
 using System.Threading.Tasks;
+using InternshipTask.src.Core.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 
 
-namespace InternshipTask.Data
+namespace InternshipTask.src.Infrastructure.Data
 {
     public class DataContext : DbContext
     {
-        public DataContext(DbContextOptions<DataContext> options) : base(options) 
+        public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
 
         }

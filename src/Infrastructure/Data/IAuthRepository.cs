@@ -2,8 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using InternshipTask.src.Core.Domain.Models;
 
-namespace InternshipTask.Data
+namespace InternshipTask.src.Infrastructure.Data
 {
     public interface IAuthRepository
     {

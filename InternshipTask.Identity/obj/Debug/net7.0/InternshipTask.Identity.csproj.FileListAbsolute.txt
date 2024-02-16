@@ -1,0 +1,5 @@
+C:\Users\Parsa\Desktop\Internship Project\InternshipTask.Identity\obj\Debug\net7.0\InternshipTask.Identity.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Parsa\Desktop\Internship Project\InternshipTask.Identity\obj\Debug\net7.0\InternshipTask.Identity.AssemblyInfoInputs.cache
+C:\Users\Parsa\Desktop\Internship Project\InternshipTask.Identity\obj\Debug\net7.0\InternshipTask.Identity.AssemblyInfo.cs
+C:\Users\Parsa\Desktop\Internship Project\InternshipTask.Identity\obj\Debug\net7.0\InternshipTask.Identity.csproj.CoreCompileInputs.cache
+C:\Users\Parsa\Desktop\Internship Project\InternshipTask.Identity\obj\Debug\net7.0\InternshipTask.Identity.csproj.AssemblyReference.cache

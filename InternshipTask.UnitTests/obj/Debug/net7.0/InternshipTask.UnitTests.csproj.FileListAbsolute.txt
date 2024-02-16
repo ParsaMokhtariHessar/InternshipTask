@@ -1,0 +1,11 @@
+C:\Users\Parsa\Desktop\Internship Project\InternshipTask.UnitTests\bin\Debug\net7.0\InternshipTask.UnitTests.deps.json
+C:\Users\Parsa\Desktop\Internship Project\InternshipTask.UnitTests\bin\Debug\net7.0\InternshipTask.UnitTests.dll
+C:\Users\Parsa\Desktop\Internship Project\InternshipTask.UnitTests\bin\Debug\net7.0\InternshipTask.UnitTests.pdb
+C:\Users\Parsa\Desktop\Internship Project\InternshipTask.UnitTests\obj\Debug\net7.0\InternshipTask.UnitTests.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Parsa\Desktop\Internship Project\InternshipTask.UnitTests\obj\Debug\net7.0\InternshipTask.UnitTests.AssemblyInfoInputs.cache
+C:\Users\Parsa\Desktop\Internship Project\InternshipTask.UnitTests\obj\Debug\net7.0\InternshipTask.UnitTests.AssemblyInfo.cs
+C:\Users\Parsa\Desktop\Internship Project\InternshipTask.UnitTests\obj\Debug\net7.0\InternshipTask.UnitTests.csproj.CoreCompileInputs.cache
+C:\Users\Parsa\Desktop\Internship Project\InternshipTask.UnitTests\obj\Debug\net7.0\InternshipTask.UnitTests.dll
+C:\Users\Parsa\Desktop\Internship Project\InternshipTask.UnitTests\obj\Debug\net7.0\refint\InternshipTask.UnitTests.dll
+C:\Users\Parsa\Desktop\Internship Project\InternshipTask.UnitTests\obj\Debug\net7.0\InternshipTask.UnitTests.pdb
+C:\Users\Parsa\Desktop\Internship Project\InternshipTask.UnitTests\obj\Debug\net7.0\ref\InternshipTask.UnitTests.dll

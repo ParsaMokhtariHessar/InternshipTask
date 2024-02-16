@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace InternshipTask.src.Infrastructure.Data
+namespace InternshipTask.Infrastructure.Data
 {
     public class Hash
     {

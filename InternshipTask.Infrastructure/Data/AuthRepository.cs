@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using InternshipTask.src.Core.Domain.Models;
 using Microsoft.IdentityModel.Tokens;
 
-namespace InternshipTask.src.Infrastructure.Data
+namespace InternshipTask.Infrastructure.Data
 {
     public class AuthRepository : IAuthRepository
     {

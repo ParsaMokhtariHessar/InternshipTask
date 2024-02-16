@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using InternshipTask.src.Core.Domain.Models;
 
-namespace InternshipTask.src.Infrastructure.Data
+namespace InternshipTask.Infrastructure.Data
 {
     public interface IAuthRepository
     {

@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.PortableExecutable;
 using System.Threading.Tasks;
-using InternshipTask.src.Core.Domain.Models;
+using InternshipTask.Core.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 
 
-namespace InternshipTask.src.Infrastructure.Data
+namespace InternshipTask.Infrastructure.Data
 {
     public class DataContext : DbContext
     {

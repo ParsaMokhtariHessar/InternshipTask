@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "46W34++rVMRggCSbq4Yv6QZODKXjiVu+ZtrUNhUs+00NYVAQPf7ndnS7LsxkKhHQsAB3VJYeRq9jCt0okec9TA==",
+  "dgSpecHash": "xLRPlV6LeFFFEnF8dloUGUUhA99iVx4o0/hIeAKzoySDWmx9In14gBAm7potDdR3CbMQafIxZ7cUoLeHyuv9Qw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Parsa\\Documents\\GitHub\\InternshipTask\\InternshipTask.Application\\InternshipTask.Application.csproj",
+  "projectFilePath": "C:\\Users\\Parsa\\Documents\\GitHub\\InternshipTask\\InternshipTask\\InternshipTask.Application\\InternshipTask.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Parsa\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\Parsa\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",

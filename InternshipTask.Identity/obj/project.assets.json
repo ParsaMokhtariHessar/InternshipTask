@@ -3380,11 +3380,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Parsa\\Documents\\GitHub\\InternshipTask\\InternshipTask.Identity\\InternshipTask.Identity.csproj",
+      "projectUniqueName": "C:\\Users\\Parsa\\Documents\\GitHub\\InternshipTask\\InternshipTask\\InternshipTask.Identity\\InternshipTask.Identity.csproj",
       "projectName": "InternshipTask.Identity",
-      "projectPath": "C:\\Users\\Parsa\\Documents\\GitHub\\InternshipTask\\InternshipTask.Identity\\InternshipTask.Identity.csproj",
+      "projectPath": "C:\\Users\\Parsa\\Documents\\GitHub\\InternshipTask\\InternshipTask\\InternshipTask.Identity\\InternshipTask.Identity.csproj",
       "packagesPath": "C:\\Users\\Parsa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Parsa\\Documents\\GitHub\\InternshipTask\\InternshipTask.Identity\\obj\\",
+      "outputPath": "C:\\Users\\Parsa\\Documents\\GitHub\\InternshipTask\\InternshipTask\\InternshipTask.Identity\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Parsa\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -3401,8 +3401,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\Parsa\\Documents\\GitHub\\InternshipTask\\InternshipTask.Application\\InternshipTask.Application.csproj": {
-              "projectPath": "C:\\Users\\Parsa\\Documents\\GitHub\\InternshipTask\\InternshipTask.Application\\InternshipTask.Application.csproj"
+            "C:\\Users\\Parsa\\Documents\\GitHub\\InternshipTask\\InternshipTask\\InternshipTask.Application\\InternshipTask.Application.csproj": {
+              "projectPath": "C:\\Users\\Parsa\\Documents\\GitHub\\InternshipTask\\InternshipTask\\InternshipTask.Application\\InternshipTask.Application.csproj"
             }
           }
         }

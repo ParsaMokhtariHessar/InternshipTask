@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InternshipTask.API", "..\InternshipTask.API\InternshipTask.API.csproj", "{9B8E76F0-AEFC-4248-BCE3-D45B69FE1B1B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InternshipTask.API", "..\InternshipTask\InternshipTask.API\InternshipTask.API.csproj", "{9B8E76F0-AEFC-4248-BCE3-D45B69FE1B1B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InternshipTask.Domain", "..\InternshipTask.Domain\InternshipTask.Domain.csproj", "{09CE499C-03ED-424F-B1B8-82B1F5944D83}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InternshipTask.Domain", "..\InternshipTask\InternshipTask.Domain\InternshipTask.Domain.csproj", "{09CE499C-03ED-424F-B1B8-82B1F5944D83}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InternshipTask.Application", "..\InternshipTask.Application\InternshipTask.Application.csproj", "{4FAC27E8-22A3-4263-8D29-83A9C83802BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InternshipTask.Application", "..\InternshipTask\InternshipTask.Application\InternshipTask.Application.csproj", "{4FAC27E8-22A3-4263-8D29-83A9C83802BB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InternshipTask.Identity", "..\InternshipTask.Identity\InternshipTask.Identity.csproj", "{11C3BAFF-7873-4BAA-A988-12A447FD5026}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InternshipTask.Identity", "..\InternshipTask\InternshipTask.Identity\InternshipTask.Identity.csproj", "{11C3BAFF-7873-4BAA-A988-12A447FD5026}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InternshipTask.Persistance", "..\InternshipTask.Persistance\InternshipTask.Persistance.csproj", "{081C6DE8-7A13-4BD7-889C-5CCD5D289644}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InternshipTask.Persistance", "..\InternshipTask\InternshipTask.Persistance\InternshipTask.Persistance.csproj", "{081C6DE8-7A13-4BD7-889C-5CCD5D289644}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InternshipTask.UnitTests", "..\InternshipTask.UnitTests\InternshipTask.UnitTests.csproj", "{AF0B4192-2381-4AD2-8197-498A97348C0F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InternshipTask.UnitTests", "..\InternshipTask\InternshipTask.UnitTests\InternshipTask.UnitTests.csproj", "{AF0B4192-2381-4AD2-8197-498A97348C0F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C27169C7-7231-4F10-9A81-981D58FE96CE}"
 EndProject

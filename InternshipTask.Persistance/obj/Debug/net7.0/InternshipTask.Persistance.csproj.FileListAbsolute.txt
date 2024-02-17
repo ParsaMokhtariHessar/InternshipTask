@@ -13,3 +13,19 @@ C:\Users\Parsa\Desktop\Internship Project\InternshipTask.Persistance\obj\Debug\n
 C:\Users\Parsa\Desktop\Internship Project\InternshipTask.Persistance\obj\Debug\net7.0\refint\InternshipTask.Persistance.dll
 C:\Users\Parsa\Desktop\Internship Project\InternshipTask.Persistance\obj\Debug\net7.0\InternshipTask.Persistance.pdb
 C:\Users\Parsa\Desktop\Internship Project\InternshipTask.Persistance\obj\Debug\net7.0\ref\InternshipTask.Persistance.dll
+C:\Users\Parsa\Documents\GitHub\InternshipTask\InternshipTask.Persistance\bin\Debug\net7.0\InternshipTask.Persistance.deps.json
+C:\Users\Parsa\Documents\GitHub\InternshipTask\InternshipTask.Persistance\bin\Debug\net7.0\InternshipTask.Persistance.dll
+C:\Users\Parsa\Documents\GitHub\InternshipTask\InternshipTask.Persistance\bin\Debug\net7.0\InternshipTask.Persistance.pdb
+C:\Users\Parsa\Documents\GitHub\InternshipTask\InternshipTask.Persistance\bin\Debug\net7.0\InternshipTask.Domain.dll
+C:\Users\Parsa\Documents\GitHub\InternshipTask\InternshipTask.Persistance\bin\Debug\net7.0\InternshipTask.Domain.pdb
+C:\Users\Parsa\Documents\GitHub\InternshipTask\InternshipTask.Persistance\obj\Debug\net7.0\InternshipTask.Persistance.csproj.AssemblyReference.cache
+C:\Users\Parsa\Documents\GitHub\InternshipTask\InternshipTask.Persistance\obj\Debug\net7.0\InternshipTask.Persistance.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Parsa\Documents\GitHub\InternshipTask\InternshipTask.Persistance\obj\Debug\net7.0\InternshipTask.Persistance.AssemblyInfoInputs.cache
+C:\Users\Parsa\Documents\GitHub\InternshipTask\InternshipTask.Persistance\obj\Debug\net7.0\InternshipTask.Persistance.AssemblyInfo.cs
+C:\Users\Parsa\Documents\GitHub\InternshipTask\InternshipTask.Persistance\obj\Debug\net7.0\InternshipTask.Persistance.csproj.CoreCompileInputs.cache
+C:\Users\Parsa\Documents\GitHub\InternshipTask\InternshipTask.Persistance\obj\Debug\net7.0\InternshipTask.Persistance.sourcelink.json
+C:\Users\Parsa\Documents\GitHub\InternshipTask\InternshipTask.Persistance\obj\Debug\net7.0\Internsh.1E8975AB.Up2Date
+C:\Users\Parsa\Documents\GitHub\InternshipTask\InternshipTask.Persistance\obj\Debug\net7.0\InternshipTask.Persistance.dll
+C:\Users\Parsa\Documents\GitHub\InternshipTask\InternshipTask.Persistance\obj\Debug\net7.0\refint\InternshipTask.Persistance.dll
+C:\Users\Parsa\Documents\GitHub\InternshipTask\InternshipTask.Persistance\obj\Debug\net7.0\InternshipTask.Persistance.pdb
+C:\Users\Parsa\Documents\GitHub\InternshipTask\InternshipTask.Persistance\obj\Debug\net7.0\ref\InternshipTask.Persistance.dll

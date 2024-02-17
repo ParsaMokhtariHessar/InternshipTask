@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1YNYpLEnjXIoAWy5aXXilu+qw2usVBLiTiE2hxohCMSB+9znLiv1J+7jAhyusw1ldoy+9fchONHhhWDl3oayDA==",
+  "dgSpecHash": "ImBHXvNNgtpxlWtBaRLQPCYo51hW9jUVKxU6U81O/gB7xs7xf/NDwUJxsO7JFN9b3kF8RqyUe7F06mGgowFfBw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Parsa\\Desktop\\Internship Project\\InternshipTask.Domain\\InternshipTask.Domain.csproj",
+  "projectFilePath": "C:\\Users\\Parsa\\Documents\\GitHub\\InternshipTask\\InternshipTask.Domain\\InternshipTask.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

@@ -1,8 +1,13 @@
-using System.Security.Claims;
+using AutoMapper;
+using InternshipTask.Application.CQRS.ProductCAndQ.Commands.CreateProduct;
+using InternshipTask.Application.CQRS.ProductCAndQ.Commands.DeleteProduct;
+using InternshipTask.Application.CQRS.ProductCAndQ.Commands.UpdateProduct;
+using InternshipTask.Application.CQRS.ProductCAndQ.Queries.GetAllProduct;
+using InternshipTask.Application.CQRS.ProductCAndQ.Queries.GetProductByEmailManufacturer;
+using InternshipTask.Application.CQRS.ProductCAndQ.Queries.GetProductByName;
 using InternshipTask.Application.Dto.Product;
 using InternshipTask.Application.Services.ProductService;
-using InternshipTask.Domain.Models;
-using Microsoft.AspNetCore.Authorization;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InternshipTask.API.Controllers
@@ -12,64 +17,74 @@ namespace InternshipTask.API.Controllers
     [Route("api/[controller]")]
     public class ProductController : ControllerBase
     {
-        private readonly IProductService _productService;
-        public ProductController(IProductService ProductService)
+        private readonly IMapper _mapper;
+        private readonly IMediator _mediator;
+        public ProductController(IProductService productService, IMapper mapper,IMediator mediator)
         {
-            _productService = ProductService;
-
+            _mapper = mapper;
+            _mediator = mediator;
         }
 
         [HttpGet]
         [Route("GetAll")]
-        public async Task<ActionResult<Domain.Models.ServiceResponse<GetProductDto>>> GetProducts()
+        public async Task<ActionResult<List<GetProductDto>>> GetProducts()
         {
-            return Ok(await _productService.GetAllProducts());
+            var products = await _mediator.Send(new GetAllProductQuery());
+            return Ok(_mapper.Map<List<GetProductDto>>(products));
         }
+
         [HttpGet]
-        [Route("GetSingle/{id}")]
-        public async Task<ActionResult<ServiceResponse<GetProductDto>>> GetSingleProduct(Guid id)
+        [Route("GetByName/{name}")]
+        public async Task<ActionResult<List<GetProductDto>>> GetProductsByName(string name)
         {
-            return Ok(await _productService.GetProductById(id));
+            var query = new GetByNameQuery { Name = name };
+            var products = await _mediator.Send(query);
+            return Ok(products);
         }
-        [Authorize]
+
+        [HttpGet]
+        [Route("GetByManufacturerEmail/{manufacturerEmail}")]
+        public async Task<ActionResult<List<GetProductDto>>> GetProductsByManufacturerEmail(string manufacturerEmail)
+        {
+            var query = new GetByManufacturerEmailQuery { ManufacturerEmail = manufacturerEmail };
+            var products = await _mediator.Send(query);
+            return Ok(products);
+        }
+
         [HttpPost]
-        [Route("PostSingle")]
-        public async Task<ActionResult<ServiceResponse<GetProductDto>>> AddProduct(AddProductDto newProduct)
+        [Route("Create")]
+        public async Task<ActionResult> CreateProduct(CreateProductDto newProduct)
         {
-            Guid id = Guid.Parse(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)!.Value);
-            return Ok(await _productService.AddProduct(newProduct, id));
+            var command = new CreateProductCommand { ToBeCreatedProduct = newProduct };
+            var response = await _mediator.Send(command);
+
+            if (response == Unit.Value)
+            {
+                return NoContent(); // Assuming you want to return 204 No Content for successful creation without a specific resource representation.
+            }
+
+            return CreatedAtAction(nameof(CreateProduct), response);
         }
-        [Authorize]
+
         [HttpPut]
-        [Route("UpdateProduct")]
-        public async Task<ActionResult<ServiceResponse<GetProductDto>>> UpdateProduct(UpdateProductDto UpdatedProduct)
+        [Route("UpdateProducts")]
+        public async Task<ActionResult> UpdateProducts(UpdateProductDto updatedProducts)
         {
-            Guid id = Guid.Parse(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)!.Value);
-            var Response = await _productService.UpdateProduct(UpdatedProduct, id);
-            if (Response.Data is null)
-            {
-                return NotFound(Response);
-            }
-            else
-            {
-                return Ok(Response);
-            }
+            var command = new UpdateProductCommand { ToBeUpdatedProduct = updatedProducts };
+            await _mediator.Send(command);
 
-
+            return NoContent();
         }
+
         [HttpDelete]
-        [Route("DeleteSingle/{id}")]
-        public async Task<ActionResult<ServiceResponse<GetProductDto>>> DeleteSingleProduct(Guid id)
+        [Route("Delete/{id}")]
+        public async Task<ActionResult> DeleteProduct(string ManufacturerEmail)
         {
-            var Response = await _productService.DeleteProduct(id);
-            if (Response.Data is null)
-            {
-                return NotFound(Response);
-            }
-            else
-            {
-                return Ok(Response);
-            }
+            var command = new DeleteProductCommand { ManufacturerEmail = ManufacturerEmail };
+            await _mediator.Send(command);
+
+            return NoContent();
         }
+
     }
 }

@@ -15,12 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\InternshipTask.Domain\InternshipTask.Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="CQRS\Product\Commands\DeleteProduct\" />
-    <Folder Include="CQRS\Product\Commands\UpdateProduct\" />
-    <Folder Include="CQRS\Product\Queries\" />
+    <ProjectReference Include="..\InternshipTask.Persistance\InternshipTask.Persistance.csproj" />
   </ItemGroup>
 
 </Project>

@@ -3,3 +3,9 @@ C:\Users\Parsa\Desktop\Internship Project\InternshipTask.Application\obj\Debug\n
 C:\Users\Parsa\Desktop\Internship Project\InternshipTask.Application\obj\Debug\net7.0\InternshipTask.Application.AssemblyInfoInputs.cache
 C:\Users\Parsa\Desktop\Internship Project\InternshipTask.Application\obj\Debug\net7.0\InternshipTask.Application.AssemblyInfo.cs
 C:\Users\Parsa\Desktop\Internship Project\InternshipTask.Application\obj\Debug\net7.0\InternshipTask.Application.csproj.CoreCompileInputs.cache
+C:\Users\Parsa\Documents\GitHub\InternshipTask\InternshipTask.Application\obj\Debug\net7.0\InternshipTask.Application.csproj.AssemblyReference.cache
+C:\Users\Parsa\Documents\GitHub\InternshipTask\InternshipTask.Application\obj\Debug\net7.0\InternshipTask.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Parsa\Documents\GitHub\InternshipTask\InternshipTask.Application\obj\Debug\net7.0\InternshipTask.Application.AssemblyInfoInputs.cache
+C:\Users\Parsa\Documents\GitHub\InternshipTask\InternshipTask.Application\obj\Debug\net7.0\InternshipTask.Application.AssemblyInfo.cs
+C:\Users\Parsa\Documents\GitHub\InternshipTask\InternshipTask.Application\obj\Debug\net7.0\InternshipTask.Application.csproj.CoreCompileInputs.cache
+C:\Users\Parsa\Documents\GitHub\InternshipTask\InternshipTask.Application\obj\Debug\net7.0\InternshipTask.Application.sourcelink.json

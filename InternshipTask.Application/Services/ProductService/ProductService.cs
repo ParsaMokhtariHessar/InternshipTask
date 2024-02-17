@@ -1,133 +1,125 @@
-using AutoMapper;
-using InternshipTask.Application.Dto.Product;
-using InternshipTask.Domain.Models;
 using InternshipTask.Infrastructure.Data;
-using System.Data;
 using Microsoft.EntityFrameworkCore;
-using InternshipTask.Migrations;
 using InternshipTask.Domain.ApplicationModels;
 
 namespace InternshipTask.Application.Services.ProductService
 {
     public class ProductService : IProductService
     {
-        private readonly IMapper _mapper;
+        
         public readonly DataContext _context;
-        public ProductService(IMapper mapper, DataContext context)
+        public ProductService(DataContext context)
         {
-            _context = context;
-            _mapper = mapper;
+            _context = context;          
         }
-        public async Task<ServiceResponse<List<GetProductDto>>> GetAllProducts()
-        {
-            var serviceResponse = new ServiceResponse<List<GetProductDto>>();
-            var dbProducts = await _context.Products.ToListAsync();
-            serviceResponse.Data = dbProducts.Select(c => _mapper.Map<GetProductDto>(c)).ToList();
-            return serviceResponse;
 
-        }
-        public async Task<ServiceResponse<List<GetProductDto>>> GetProductById(Guid id)
+        public async Task<List<Product>> GetAllProducts()
         {
-            var serviceResponse = new ServiceResponse<List<GetProductDto>>();
-            var dbProducts = await _context.Products.ToListAsync();
-            serviceResponse.Data = dbProducts.Select(c => _mapper.Map<GetProductDto>(c)).ToList();
-            return serviceResponse;
+            var products = await _context.Products.ToListAsync();
 
-        }
-        public async Task<ServiceResponse<List<GetProductDto>>> AddProduct(AddProductDto newProduct, Guid userId)
-        {
-            var serviceResponse = new ServiceResponse<List<GetProductDto>>();
-
-            // Check if ManufactureEmail is unique
-            if (await _context.Products.AnyAsync(p => p.ManufactureEmail == newProduct.ManufactureEmail))
+            if (products == null || products.Count == 0)
             {
-                serviceResponse.Success = false;
-                serviceResponse.Message = "ManufactureEmail must be unique.";
-                return serviceResponse;
+                throw new InvalidOperationException("No products found");
             }
 
-            // Check if ProductDate is unique
-            if (await _context.Products.AnyAsync(p => p.ProductDate == newProduct.ProductDate))
+            return products;
+        }
+
+        public async Task<List<Product>> GetProductByName(string productName)
+        {
+            var products = await _context.Products.Where(p => p.Name == productName).ToListAsync();
+
+            if (products == null || products.Count == 0)
             {
-                serviceResponse.Success = false;
-                serviceResponse.Message = "ProductDate must be unique.";
-                return serviceResponse;
+                throw new InvalidOperationException($"No products found with name '{productName}'");
             }
 
-            var user = await _context.Users.FirstOrDefaultAsync(c => c.Id == userId);
+            return products;
+        }
 
-            if (user == null)
+        public async Task<Product> GetProductByManufacturerEmail(string manufacturerEmail)
+        {
+            var product = await _context.Products.FirstOrDefaultAsync(p => p.ManufactureEmail == manufacturerEmail);
+
+            return product;
+        }
+
+        public async Task<Product> GetProductByDate(DateTime productDate)
+        {
+            DateTime startDate = productDate.Date;
+            DateTime endDate = startDate.AddDays(1);
+
+            var product = await _context.Products
+                .FirstOrDefaultAsync(p => p.ProductDate >= startDate && p.ProductDate < endDate);
+
+            if (product == null)
             {
-                serviceResponse.Success = false;
-                serviceResponse.Message = "User not found.";
-                return serviceResponse;
+                throw new InvalidOperationException($"No product found on date '{productDate.ToShortDateString()}'");
             }
 
-            var NewProduct = _mapper.Map<Product>(newProduct);
-            NewProduct.Creator = user;
-            _context.Products.Add(NewProduct);
+            return product;
+        }
+
+        public async Task CreateProduct(Product newProduct)
+        {
+            var createdProductEntry = await _context.Products.AddAsync(newProduct);
             await _context.SaveChangesAsync();
-            serviceResponse.Data = await _context.Products.Select(c => _mapper.Map<GetProductDto>(c)).ToListAsync();
-            return serviceResponse;
         }
 
-        public async Task<ServiceResponse<GetProductDto>> UpdateProduct(UpdateProductDto updatedProduct, Guid userId)
+        public async Task UpdateProduct(Product newProduct)
         {
-            var serviceResponse = new ServiceResponse<GetProductDto>();
+            var existingProduct = await _context.Products.FirstOrDefaultAsync(p => p.ManufactureEmail == newProduct.ManufactureEmail);
 
-            try
+            if (existingProduct == null)
             {
-                var product = await _context.Products.FirstOrDefaultAsync(c => c.Id == updatedProduct.Id);
-                if (product is null)
-                {
-                    throw new Exception($"Product with Id '{updatedProduct.Id}' not found!");
-                    // Check if the user ID matches the creator ID
-                }
-                if (product.Creator.Id != userId) // this is where the warning Derefrence of a possibly null reference happens
-                {
-                    throw new Exception("You don't have permission to update this product.");
-                    // Alternatively, you can set the serviceResponse properties accordingly and return here
-                }
-                // _mapper.Map(UpdatedProduct,Product); Couldn't Implement try later!
-                // _mapper.Map<Product>(UpdatedProduct);
-                product.Name = updatedProduct.Name;
-                product.ProductDate = updatedProduct.ProductDate;
-                product.ManufacturePhone = updatedProduct.ManufacturePhone;
-                product.ManufactureEmail = updatedProduct.ManufactureEmail;
-                product.IsAvailable = updatedProduct.IsAvailable;
-                await _context.SaveChangesAsync();
-                serviceResponse.Data = _mapper.Map<GetProductDto>(product);
+                throw new ArgumentException($"Product with ManufactureEmail '{newProduct.ManufactureEmail}' not found", nameof(newProduct.ManufactureEmail));
             }
-            catch (Exception ex)
-            {
-                serviceResponse.Success = false;
-                serviceResponse.Message = ex.Message;
-            }
+            // Update existingProduct properties with values from newProduct
+            existingProduct.Name = newProduct.Name;
+            existingProduct.ProductDate = newProduct.ProductDate;
+            existingProduct.ManufacturePhone = newProduct.ManufacturePhone;
+            existingProduct.ManufactureEmail = newProduct.ManufactureEmail;
+            existingProduct.IsAvailable = newProduct.IsAvailable;
+            existingProduct.CreatorId = newProduct.CreatorId;
 
+            // Mark the existingProduct as modified
+            _context.Update(existingProduct);
 
-            return serviceResponse;
+            // Save changes
+            await _context.SaveChangesAsync();
         }
 
-        public async Task<ServiceResponse<List<GetProductDto>>> DeleteProduct(Guid id)
+        public async Task DeleteProduct(string ManufactureEmail)
+        {           
+            var existingProduct = await _context.Products.FirstOrDefaultAsync(p => p.ManufactureEmail == ManufactureEmail);
+
+            if (existingProduct == null)
+            {
+                throw new ArgumentException("Product not found", nameof(existingProduct.Name));
+            }
+
+            _context.Products.Remove(existingProduct);
+
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task<bool> IsManufactureEmailUnique(string manufactureEmail)
         {
-            var serviceResponse = new ServiceResponse<List<GetProductDto>>();
-            try
-            {
-                var Product = await _context.Products.FirstOrDefaultAsync(c => c.Id == id);
-                if (Product is null)
-                    throw new Exception($"Product with Id '{id}' not found!");
+            bool isUnique = await _context.Products.AllAsync(p =>
+                p.ManufactureEmail != manufactureEmail);
 
-                _context.Products.Remove(Product);
-                await _context.SaveChangesAsync();
-                serviceResponse.Data = await _context.Products.Select(c => _mapper.Map<GetProductDto>(c)).ToListAsync();
-            }
-            catch (Exception ex)
-            {
-                serviceResponse.Success = false;
-                serviceResponse.Message = ex.Message;
-            }
-            return serviceResponse;
+            return isUnique;
         }
 
+        public async Task<bool> IsProductDateUnique(DateTime productDate)
+        {
+            DateTime startDate = productDate.Date;
+            DateTime endDate = startDate.AddDays(1); // Add one day to include the entire date range
+
+            bool isUnique = await _context.Products.AllAsync(p =>
+                p.ProductDate >= startDate && p.ProductDate < endDate);
+
+            return isUnique;
+        }
     }
 }

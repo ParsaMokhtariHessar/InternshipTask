@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Parsa\\Desktop\\Internship Project\\InternshipTask.UnitTests\\InternshipTask.UnitTests.csproj",
+      "projectUniqueName": "C:\\Users\\Parsa\\Documents\\GitHub\\InternshipTask\\InternshipTask.UnitTests\\InternshipTask.UnitTests.csproj",
       "projectName": "InternshipTask.UnitTests",
-      "projectPath": "C:\\Users\\Parsa\\Desktop\\Internship Project\\InternshipTask.UnitTests\\InternshipTask.UnitTests.csproj",
+      "projectPath": "C:\\Users\\Parsa\\Documents\\GitHub\\InternshipTask\\InternshipTask.UnitTests\\InternshipTask.UnitTests.csproj",
       "packagesPath": "C:\\Users\\Parsa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Parsa\\Desktop\\Internship Project\\InternshipTask.UnitTests\\obj\\",
+      "outputPath": "C:\\Users\\Parsa\\Documents\\GitHub\\InternshipTask\\InternshipTask.UnitTests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Parsa\\AppData\\Roaming\\NuGet\\NuGet.Config",

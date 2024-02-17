@@ -9,7 +9,7 @@ namespace InternshipTask.Application
         public AutoMapperProfile()
         {
             CreateMap<Product, GetProductDto>();
-            CreateMap<AddProductDto, Product>();
+            CreateMap<CreateProductDto, Product>();
             // CreateMap<UpdateProductDto,Product>();
         }
 

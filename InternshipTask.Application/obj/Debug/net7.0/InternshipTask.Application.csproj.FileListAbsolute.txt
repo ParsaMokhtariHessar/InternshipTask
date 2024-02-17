@@ -9,3 +9,15 @@ C:\Users\Parsa\Documents\GitHub\InternshipTask\InternshipTask.Application\obj\De
 C:\Users\Parsa\Documents\GitHub\InternshipTask\InternshipTask.Application\obj\Debug\net7.0\InternshipTask.Application.AssemblyInfo.cs
 C:\Users\Parsa\Documents\GitHub\InternshipTask\InternshipTask.Application\obj\Debug\net7.0\InternshipTask.Application.csproj.CoreCompileInputs.cache
 C:\Users\Parsa\Documents\GitHub\InternshipTask\InternshipTask.Application\obj\Debug\net7.0\InternshipTask.Application.sourcelink.json
+C:\Users\Parsa\Documents\GitHub\InternshipTask\InternshipTask.Application\bin\Debug\net7.0\InternshipTask.Application.deps.json
+C:\Users\Parsa\Documents\GitHub\InternshipTask\InternshipTask.Application\bin\Debug\net7.0\InternshipTask.Application.dll
+C:\Users\Parsa\Documents\GitHub\InternshipTask\InternshipTask.Application\bin\Debug\net7.0\InternshipTask.Application.pdb
+C:\Users\Parsa\Documents\GitHub\InternshipTask\InternshipTask.Application\bin\Debug\net7.0\InternshipTask.Domain.dll
+C:\Users\Parsa\Documents\GitHub\InternshipTask\InternshipTask.Application\bin\Debug\net7.0\InternshipTask.Persistance.dll
+C:\Users\Parsa\Documents\GitHub\InternshipTask\InternshipTask.Application\bin\Debug\net7.0\InternshipTask.Domain.pdb
+C:\Users\Parsa\Documents\GitHub\InternshipTask\InternshipTask.Application\bin\Debug\net7.0\InternshipTask.Persistance.pdb
+C:\Users\Parsa\Documents\GitHub\InternshipTask\InternshipTask.Application\obj\Debug\net7.0\Internsh.B4C8EFF0.Up2Date
+C:\Users\Parsa\Documents\GitHub\InternshipTask\InternshipTask.Application\obj\Debug\net7.0\InternshipTask.Application.dll
+C:\Users\Parsa\Documents\GitHub\InternshipTask\InternshipTask.Application\obj\Debug\net7.0\refint\InternshipTask.Application.dll
+C:\Users\Parsa\Documents\GitHub\InternshipTask\InternshipTask.Application\obj\Debug\net7.0\InternshipTask.Application.pdb
+C:\Users\Parsa\Documents\GitHub\InternshipTask\InternshipTask.Application\obj\Debug\net7.0\ref\InternshipTask.Application.dll

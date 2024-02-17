@@ -10,6 +10,6 @@ namespace InternshipTask.Application.CQRS.ProductCAndQ.Queries.GetProductByName
 {
     public record GetByNameQuery : IRequest<List<GetProductDto>>
     {
-        public string Name { get; init; }
+        public string Name { get; init; } = string.Empty;
     }
 }

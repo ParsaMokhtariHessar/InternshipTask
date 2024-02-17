@@ -1,7 +1,4 @@
-using InternshipTask.Application.Dto.User;
 using InternshipTask.Application.Identity;
-using InternshipTask.Domain.Models;
-using InternshipTask.Identity.IdentityModels;
 using InternshipTask.Identity.Services.AuthService;
 using Microsoft.AspNetCore.Mvc;
 

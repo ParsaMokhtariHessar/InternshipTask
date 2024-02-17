@@ -7,10 +7,10 @@ namespace InternshipTask.Application.Dto.Product
 {
     public class UpdateProductDto
     {
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
         public DateTime ProductDate { get; set; }
-        public string ManufacturePhone { get; set; }
-        public string ManufactureEmail { get; set; }
+        public string ManufacturePhone { get; set; } = string.Empty;
+        public string ManufactureEmail { get; set; } = string.Empty;
         public bool IsAvailable { get; set; }
     }
 }

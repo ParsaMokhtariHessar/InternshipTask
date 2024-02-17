@@ -45,7 +45,7 @@ namespace InternshipTask.Identity.Services.AuthService
             var response = new AuthResponse
             {
                 UserId = user.UserId,
-                UserName = user.UserName,
+                UserName = user.UserName!,
                 Token = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken)
             };
 
@@ -84,7 +84,7 @@ namespace InternshipTask.Identity.Services.AuthService
             var claims = new List<Claim>
             {
                 new Claim("UserId", user.UserId.ToString()),
-                new Claim(ClaimTypes.Name, user.UserName)
+                new Claim(ClaimTypes.Name, user.UserName!)
             }
             .Union(userClaims);
 

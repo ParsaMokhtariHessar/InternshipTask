@@ -10,6 +10,6 @@ namespace InternshipTask.Application.CQRS.ProductCAndQ.Queries.GetProductByEmail
 {
     public record GetByManufacturerEmailQuery : IRequest<List<GetProductDto>>
     {
-        public string ManufacturerEmail { get; init; }
+        public string ManufacturerEmail { get; init; } = string.Empty;
     }
 }

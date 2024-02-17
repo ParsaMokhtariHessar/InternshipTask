@@ -1,4 +1,5 @@
-﻿using InternshipTask.Identity.IdentityModels;
+﻿using InternshipTask.Application.Exceptions;
+using InternshipTask.Identity.IdentityModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -17,11 +18,31 @@ namespace InternshipTask.Identity.Services.UserService
             _contextAccessor = contextAccessor;
         }
 
-        public Guid UserId  { get => Guid.Parse(_contextAccessor.HttpContext?.User?.FindFirstValue("UserId"));}
+        public Guid UserId  {
+            get
+            {
+                var userIdString = _contextAccessor.HttpContext?.User?.FindFirstValue("UserId");
+
+                if (Guid.TryParse(userIdString, out Guid userId))
+                {
+                    return userId;
+                }
+                else
+                {
+                    // Handle the case when parsing fails, for example, return a default Guid.
+                    return Guid.Empty; // or throw an exception, or any other appropriate handling
+                }
+            }
+        }
 
         public async Task<User> GetUser(string userName)
         {
             var user = await _userManager.FindByNameAsync(userName);
+            if (user == null)
+            {
+                throw new NotFoundException($"User with {userName} not found.", userName);
+            }
+
             return new User
             {
                 UserId = user.UserId,

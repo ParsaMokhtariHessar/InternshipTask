@@ -10,6 +10,6 @@ namespace InternshipTask.Application.CQRS.ProductCAndQ.Commands.UpdateProduct
 {
     public class UpdateProductCommand : IRequest<Unit>
     {
-        public UpdateProductDto ToBeUpdatedProduct { get; set; }
+        public UpdateProductDto? ToBeUpdatedProduct { get; set; }
     }
 }

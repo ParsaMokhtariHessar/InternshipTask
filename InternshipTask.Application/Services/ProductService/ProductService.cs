@@ -39,8 +39,14 @@ namespace InternshipTask.Application.Services.ProductService
 
         public async Task<Product> GetProductByManufacturerEmail(string manufacturerEmail)
         {
-            var product = await _context.Products.FirstOrDefaultAsync(p => p.ManufactureEmail == manufacturerEmail);
 
+            var product = await _context.Products.FirstOrDefaultAsync(p => p.ManufactureEmail == manufacturerEmail);
+            if (product == null)
+            {
+                // Handle the case where no product is found with the specified manufacturerEmail.
+                // You might throw an exception, return a default value, or handle it based on your requirements.
+                throw new InvalidOperationException($"Product with manufacturer email '{manufacturerEmail}' not found");
+            }
             return product;
         }
 

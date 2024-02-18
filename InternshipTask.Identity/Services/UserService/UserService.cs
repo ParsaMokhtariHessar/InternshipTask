@@ -11,10 +11,10 @@ namespace InternshipTask.Identity.Services.UserService
 {
     internal class UserService : IUserService
     {
-        private readonly UserManager<UserRole> _userManager;
+        private readonly UserManager<ApplicationUser> _userManager;
         private readonly IHttpContextAccessor _contextAccessor;
 
-        public UserService(UserManager<UserRole> userManager, IHttpContextAccessor contextAccessor)
+        public UserService(UserManager<ApplicationUser> userManager, IHttpContextAccessor contextAccessor)
         {
             _userManager = userManager;
             _contextAccessor = contextAccessor;
@@ -39,23 +39,27 @@ namespace InternshipTask.Identity.Services.UserService
 
         public async Task<UserRole> GetUser(string userName)
         {
-            var user = await _userManager.FindByNameAsync(userName);
-            if (user == null)
+            var userRole = await _userManager.FindByNameAsync(userName);
+            if (userRole == null)
             {
                 throw new NotFoundException($"User with {userName} not found.", userName);
             }
 
             return new UserRole
             {
-                UserId = user.UserId,
-                UserName = user.UserName,
+                UserId = userRole.UserId,
+                UserName = userRole.UserName?? string.Empty,
             };
         }
 
         public async Task<List<UserRole>> GetUsers()
         {
-            var users = await _userManager.Users.ToListAsync();
-            return users;
+            var userRoles = await _userManager.GetUsersInRoleAsync("UserRole");
+            return userRoles.Select(q => new UserRole
+            {
+                UserId = q.Id,
+                UserName = q.UserName??string.Empty            
+            }).ToList();
         }
     }
 }

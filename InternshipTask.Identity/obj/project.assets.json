@@ -1288,7 +1288,6 @@
           "FluentValidation": "11.9.0",
           "FluentValidation.DependencyInjectionExtensions": "11.9.0",
           "InternshipTask.Domain": "1.0.0",
-          "InternshipTask.Persistance": "1.0.0",
           "MediatR": "12.2.0"
         },
         "compile": {
@@ -1306,26 +1305,6 @@
         },
         "runtime": {
           "bin/placeholder/InternshipTask.Domain.dll": {}
-        }
-      },
-      "InternshipTask.Persistance/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v7.0",
-        "dependencies": {
-          "AutoMapper": "13.0.1",
-          "InternshipTask.Domain": "1.0.0",
-          "Microsoft.EntityFrameworkCore": "7.0.16",
-          "Microsoft.EntityFrameworkCore.Relational": "7.0.16",
-          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.16",
-          "Microsoft.Extensions.Configuration.Abstractions": "7.0.0",
-          "Microsoft.IdentityModel.Tokens": "7.3.1",
-          "System.IdentityModel.Tokens.Jwt": "7.3.1"
-        },
-        "compile": {
-          "bin/placeholder/InternshipTask.Persistance.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/InternshipTask.Persistance.dll": {}
         }
       }
     }
@@ -3354,11 +3333,6 @@
       "type": "project",
       "path": "../InternshipTask.Domain/InternshipTask.Domain.csproj",
       "msbuildProject": "../InternshipTask.Domain/InternshipTask.Domain.csproj"
-    },
-    "InternshipTask.Persistance/1.0.0": {
-      "type": "project",
-      "path": "../InternshipTask.Persistance/InternshipTask.Persistance.csproj",
-      "msbuildProject": "../InternshipTask.Persistance/InternshipTask.Persistance.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -3380,11 +3354,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Parsa\\Documents\\GitHub\\InternshipTask\\InternshipTask\\InternshipTask.Identity\\InternshipTask.Identity.csproj",
+      "projectUniqueName": "C:\\Users\\Parsa\\Documents\\GitHub\\InternshipTask7\\InternshipTask\\InternshipTask.Identity\\InternshipTask.Identity.csproj",
       "projectName": "InternshipTask.Identity",
-      "projectPath": "C:\\Users\\Parsa\\Documents\\GitHub\\InternshipTask\\InternshipTask\\InternshipTask.Identity\\InternshipTask.Identity.csproj",
+      "projectPath": "C:\\Users\\Parsa\\Documents\\GitHub\\InternshipTask7\\InternshipTask\\InternshipTask.Identity\\InternshipTask.Identity.csproj",
       "packagesPath": "C:\\Users\\Parsa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Parsa\\Documents\\GitHub\\InternshipTask\\InternshipTask\\InternshipTask.Identity\\obj\\",
+      "outputPath": "C:\\Users\\Parsa\\Documents\\GitHub\\InternshipTask7\\InternshipTask\\InternshipTask.Identity\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Parsa\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -3401,8 +3375,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\Parsa\\Documents\\GitHub\\InternshipTask\\InternshipTask\\InternshipTask.Application\\InternshipTask.Application.csproj": {
-              "projectPath": "C:\\Users\\Parsa\\Documents\\GitHub\\InternshipTask\\InternshipTask\\InternshipTask.Application\\InternshipTask.Application.csproj"
+            "C:\\Users\\Parsa\\Documents\\GitHub\\InternshipTask7\\InternshipTask\\InternshipTask.Application\\InternshipTask.Application.csproj": {
+              "projectPath": "C:\\Users\\Parsa\\Documents\\GitHub\\InternshipTask7\\InternshipTask\\InternshipTask.Application\\InternshipTask.Application.csproj"
             }
           }
         }

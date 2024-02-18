@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace InternshipTask.Identity.IdentityModels
 {
-    public class User : IdentityUser<Guid>
+    public class ApplicationUser : IdentityUser<Guid>
     {
         // Remove Email-related properties
         public override string? Email { get; set; } = string.Empty;

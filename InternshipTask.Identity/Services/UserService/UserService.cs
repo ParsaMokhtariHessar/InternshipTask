@@ -4,15 +4,17 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
+using InternshipTask.Application.Contracts;
+using InternshipTask.Application.ApplicationModels.Identity;
 
 namespace InternshipTask.Identity.Services.UserService
 {
     internal class UserService : IUserService
     {
-        private readonly UserManager<User> _userManager;
+        private readonly UserManager<UserRole> _userManager;
         private readonly IHttpContextAccessor _contextAccessor;
 
-        public UserService(UserManager<User> userManager, IHttpContextAccessor contextAccessor)
+        public UserService(UserManager<UserRole> userManager, IHttpContextAccessor contextAccessor)
         {
             _userManager = userManager;
             _contextAccessor = contextAccessor;
@@ -35,7 +37,7 @@ namespace InternshipTask.Identity.Services.UserService
             }
         }
 
-        public async Task<User> GetUser(string userName)
+        public async Task<UserRole> GetUser(string userName)
         {
             var user = await _userManager.FindByNameAsync(userName);
             if (user == null)
@@ -43,14 +45,14 @@ namespace InternshipTask.Identity.Services.UserService
                 throw new NotFoundException($"User with {userName} not found.", userName);
             }
 
-            return new User
+            return new UserRole
             {
                 UserId = user.UserId,
                 UserName = user.UserName,
             };
         }
 
-        public async Task<List<User>> GetUsers()
+        public async Task<List<UserRole>> GetUsers()
         {
             var users = await _userManager.Users.ToListAsync();
             return users;

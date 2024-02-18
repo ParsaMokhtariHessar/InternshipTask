@@ -1,5 +1,5 @@
-﻿using InternshipTask.Application.Exceptions;
-using InternshipTask.Application.Identity;
+﻿using InternshipTask.Application.ApplicationModels.Identity;
+using InternshipTask.Application.Exceptions;
 using InternshipTask.Identity.IdentityModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
@@ -12,13 +12,13 @@ namespace InternshipTask.Identity.Services.AuthService
 {
     public class AuthService : IAuthService
     {
-        private readonly UserManager<User> _userManager;
-        private readonly SignInManager<User> _signInManager;
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly JwtSettings _jwtSettings;
 
-        public AuthService(UserManager<User> userManager,
+        public AuthService(UserManager<ApplicationUser> userManager,
             IOptions<JwtSettings> jwtSettings,
-            SignInManager<User> signInManager)
+            SignInManager<ApplicationUser> signInManager)
         {
             _userManager = userManager;
             _jwtSettings = jwtSettings.Value;
@@ -54,7 +54,7 @@ namespace InternshipTask.Identity.Services.AuthService
 
         public async Task<RegistrationResponse> Register(RegistrationRequest request)
         {
-            var user = new User
+            var user = new ApplicationUser
             {
                 UserName = request.UserName,
             };
@@ -77,7 +77,7 @@ namespace InternshipTask.Identity.Services.AuthService
             }
         }
 
-        private async Task<JwtSecurityToken> GenerateToken(User user)
+        private async Task<JwtSecurityToken> GenerateToken(ApplicationUser user)
         {
             var userClaims = await _userManager.GetClaimsAsync(user);
 

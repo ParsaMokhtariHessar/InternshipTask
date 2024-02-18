@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace InternshipTask.Identity.IdentityData
 {
-    internal class IntershipTaskIdentityDbContext : IdentityDbContext<User, IdentityRole<Guid>, Guid>
+    internal class IntershipTaskIdentityDbContext : IdentityDbContext<ApplicationUser, IdentityRole<Guid>, Guid>
     {
         public IntershipTaskIdentityDbContext(DbContextOptions<IntershipTaskIdentityDbContext> options)
             : base(options)

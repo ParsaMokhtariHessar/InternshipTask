@@ -1,7 +1,6 @@
 ﻿using FluentValidation;
+using InternshipTask.Application.Contracts;
 using InternshipTask.Application.Dto.Product;
-using InternshipTask.Application.Services.ProductService;
-using InternshipTask.Domain.ApplicationModels;
 
 namespace InternshipTask.Application.CQRS.ProductCAndQ.Commands.UpdateProduct
 {

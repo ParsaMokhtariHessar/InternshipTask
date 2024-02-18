@@ -1,16 +1,17 @@
-using InternshipTask.Infrastructure.Data;
-using Microsoft.EntityFrameworkCore;
+using InternshipTask.Application.Contracts;
 using InternshipTask.Domain.ApplicationModels;
+using InternshipTask.Persistance.Data;
+using Microsoft.EntityFrameworkCore;
 
-namespace InternshipTask.Application.Services.ProductService
+namespace InternshipTask.Persistance.Services.ProductService
 {
     public class ProductService : IProductService
     {
-        
-        public readonly DataContext _context;
-        public ProductService(DataContext context)
+
+        public readonly ProductDataContext _context;
+        public ProductService(ProductDataContext context)
         {
-            _context = context;          
+            _context = context;
         }
 
         public async Task<List<Product>> GetAllProducts()
@@ -96,7 +97,7 @@ namespace InternshipTask.Application.Services.ProductService
         }
 
         public async Task DeleteProduct(string ManufactureEmail)
-        {           
+        {
             var existingProduct = await _context.Products.FirstOrDefaultAsync(p => p.ManufactureEmail == ManufactureEmail);
 
             if (existingProduct == null)

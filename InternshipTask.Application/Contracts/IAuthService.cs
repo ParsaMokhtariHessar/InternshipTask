@@ -1,4 +1,4 @@
-﻿using InternshipTask.Application.Identity;
+﻿using InternshipTask.Application.ApplicationModels.Identity;
 
 namespace InternshipTask.Identity.Services.AuthService
 {

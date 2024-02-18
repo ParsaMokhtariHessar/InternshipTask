@@ -1,4 +1,4 @@
-using InternshipTask.Application.Identity;
+using InternshipTask.Application.ApplicationModels.Identity;
 using InternshipTask.Identity.Services.AuthService;
 using Microsoft.AspNetCore.Mvc;
 

@@ -14,8 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\InternshipTask.Domain\InternshipTask.Domain.csproj" />
-    <ProjectReference Include="..\InternshipTask.Persistance\InternshipTask.Persistance.csproj" />
+    <ProjectReference Include="..\InternshipTask.Domain\InternshipTask.Domain.csproj" />    
   </ItemGroup>
 
 </Project>

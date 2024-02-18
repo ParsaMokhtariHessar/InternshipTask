@@ -1,14 +1,6 @@
-﻿using InternshipTask.Application.Services.ProductService;
-using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using InternshipTask.Domain.ApplicationModels;
-using InternshipTask.Application.CQRS.ProductCAndQ.Commands.CreateProduct;
+﻿using MediatR;
 using InternshipTask.Application.Exceptions;
-using FluentValidation;
+using InternshipTask.Application.Contracts;
 namespace InternshipTask.Application.CQRS.ProductCAndQ.Commands.DeleteProduct
 {
     public class DeleteProductCommandHandler : IRequestHandler<DeleteProductCommand, Unit>

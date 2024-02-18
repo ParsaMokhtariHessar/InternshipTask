@@ -1,4 +1,5 @@
 using AutoMapper;
+using InternshipTask.Application.Contracts;
 using InternshipTask.Application.CQRS.ProductCAndQ.Commands.CreateProduct;
 using InternshipTask.Application.CQRS.ProductCAndQ.Commands.DeleteProduct;
 using InternshipTask.Application.CQRS.ProductCAndQ.Commands.UpdateProduct;
@@ -6,7 +7,6 @@ using InternshipTask.Application.CQRS.ProductCAndQ.Queries.GetAllProduct;
 using InternshipTask.Application.CQRS.ProductCAndQ.Queries.GetProductByEmailManufacturer;
 using InternshipTask.Application.CQRS.ProductCAndQ.Queries.GetProductByName;
 using InternshipTask.Application.Dto.Product;
-using InternshipTask.Application.Services.ProductService;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

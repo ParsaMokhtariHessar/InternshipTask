@@ -21,3 +21,15 @@ C:\Users\Parsa\Documents\GitHub\InternshipTask\InternshipTask.Domain\obj\Debug\n
 C:\Users\Parsa\Documents\GitHub\InternshipTask\InternshipTask.Domain\obj\Debug\net7.0\refint\InternshipTask.Domain.dll
 C:\Users\Parsa\Documents\GitHub\InternshipTask\InternshipTask.Domain\obj\Debug\net7.0\InternshipTask.Domain.pdb
 C:\Users\Parsa\Documents\GitHub\InternshipTask\InternshipTask.Domain\obj\Debug\net7.0\ref\InternshipTask.Domain.dll
+C:\Users\Parsa\Documents\GitHub\InternshipTask\InternshipTask\InternshipTask.Domain\bin\Debug\net7.0\InternshipTask.Domain.deps.json
+C:\Users\Parsa\Documents\GitHub\InternshipTask\InternshipTask\InternshipTask.Domain\bin\Debug\net7.0\InternshipTask.Domain.dll
+C:\Users\Parsa\Documents\GitHub\InternshipTask\InternshipTask\InternshipTask.Domain\bin\Debug\net7.0\InternshipTask.Domain.pdb
+C:\Users\Parsa\Documents\GitHub\InternshipTask\InternshipTask\InternshipTask.Domain\obj\Debug\net7.0\InternshipTask.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Parsa\Documents\GitHub\InternshipTask\InternshipTask\InternshipTask.Domain\obj\Debug\net7.0\InternshipTask.Domain.AssemblyInfoInputs.cache
+C:\Users\Parsa\Documents\GitHub\InternshipTask\InternshipTask\InternshipTask.Domain\obj\Debug\net7.0\InternshipTask.Domain.AssemblyInfo.cs
+C:\Users\Parsa\Documents\GitHub\InternshipTask\InternshipTask\InternshipTask.Domain\obj\Debug\net7.0\InternshipTask.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Parsa\Documents\GitHub\InternshipTask\InternshipTask\InternshipTask.Domain\obj\Debug\net7.0\InternshipTask.Domain.sourcelink.json
+C:\Users\Parsa\Documents\GitHub\InternshipTask\InternshipTask\InternshipTask.Domain\obj\Debug\net7.0\InternshipTask.Domain.dll
+C:\Users\Parsa\Documents\GitHub\InternshipTask\InternshipTask\InternshipTask.Domain\obj\Debug\net7.0\refint\InternshipTask.Domain.dll
+C:\Users\Parsa\Documents\GitHub\InternshipTask\InternshipTask\InternshipTask.Domain\obj\Debug\net7.0\InternshipTask.Domain.pdb
+C:\Users\Parsa\Documents\GitHub\InternshipTask\InternshipTask\InternshipTask.Domain\obj\Debug\net7.0\ref\InternshipTask.Domain.dll

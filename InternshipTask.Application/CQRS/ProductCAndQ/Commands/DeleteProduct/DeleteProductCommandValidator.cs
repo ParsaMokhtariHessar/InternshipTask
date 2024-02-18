@@ -1,11 +1,5 @@
 ﻿using FluentValidation;
-using InternshipTask.Application.Services.ProductService;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using InternshipTask.Application.Contracts;
 
 namespace InternshipTask.Application.CQRS.ProductCAndQ.Commands.DeleteProduct
 {

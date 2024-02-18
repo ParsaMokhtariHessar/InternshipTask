@@ -1,4 +1,4 @@
-﻿using InternshipTask.Application.Identity;
+﻿using InternshipTask.Application.ApplicationModels.Identity;
 using InternshipTask.Identity.IdentityData;
 using InternshipTask.Identity.IdentityModels;
 using InternshipTask.Identity.Services.AuthService;
@@ -23,7 +23,7 @@ namespace InternshipTask.Identity
             services.AddDbContext<IntershipTaskIdentityDbContext>(options =>
                 options.UseSqlServer(configuration.GetConnectionString("ConnectionStrings")));
 
-            services.AddIdentity<User, IdentityRole<Guid>>(
+            services.AddIdentity<ApplicationUser, IdentityRole<Guid>>(
                 options => { options.User.RequireUniqueEmail = false; }
             ).AddEntityFrameworkStores<IntershipTaskIdentityDbContext>().AddDefaultTokenProviders();
 

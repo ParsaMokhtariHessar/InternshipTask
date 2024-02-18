@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using InternshipTask.Application.Exceptions;
-using InternshipTask.Application.Services.ProductService;
 using InternshipTask.Domain.ApplicationModels;
 using MediatR;
+using InternshipTask.Application.Contracts;
 
 namespace InternshipTask.Application.CQRS.ProductCAndQ.Commands.CreateProduct
 {

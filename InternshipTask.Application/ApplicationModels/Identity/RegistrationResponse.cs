@@ -1,4 +1,4 @@
-﻿namespace InternshipTask.Application.Identity
+﻿namespace InternshipTask.Application.ApplicationModels.Identity
 {
     public class RegistrationResponse
     {

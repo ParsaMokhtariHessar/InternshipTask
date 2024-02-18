@@ -7,7 +7,7 @@ namespace InternshipTask.Identity.IdentityMappingProfiles
     internal class IdentityMappingProfiles : Profile
     {
         public IdentityMappingProfiles() {
-            CreateMap<User,IdentityUser>();
+            CreateMap<ApplicationUser,IdentityUser>();
         }
     }
 }

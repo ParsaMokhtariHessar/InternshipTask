@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace InternshipTask.Application.Identity
+namespace InternshipTask.Application.ApplicationModels.Identity
 {
     public class RegistrationRequest
     {

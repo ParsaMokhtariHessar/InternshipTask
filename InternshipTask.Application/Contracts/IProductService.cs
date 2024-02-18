@@ -2,7 +2,7 @@ using InternshipTask.Application.Dto.Product;
 using InternshipTask.Domain.ApplicationModels;
 
 
-namespace InternshipTask.Application.Services.ProductService
+namespace InternshipTask.Application.Contracts
 {
     public interface IProductService
     {

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
+using InternshipTask.Application.Contracts;
 using InternshipTask.Application.Exceptions;
-using InternshipTask.Application.Services.ProductService;
 using InternshipTask.Domain.ApplicationModels;
 using MediatR;
 
@@ -21,6 +21,10 @@ namespace InternshipTask.Application.CQRS.ProductCAndQ.Commands.UpdateProduct
         {
                 // Validate incoming data
                 var validator = new UpdateProductCommandValidator(_productService);
+                if(request.ToBeUpdatedProduct == null)
+                {
+                    throw new BadRequestException("ToBeUpdatedProduct cannot be null");
+                }
                 var validationResult = await validator.ValidateAsync(request.ToBeUpdatedProduct, cancellationToken);
            
                 if (validationResult.Errors.Any())

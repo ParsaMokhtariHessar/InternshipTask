@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
+using InternshipTask.Application.Contracts;
 using InternshipTask.Application.Dto.Product;
-using InternshipTask.Application.Services.ProductService;
 
 namespace InternshipTask.Application.CQRS.ProductCAndQ.Commands.CreateProduct
 {

@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
+using InternshipTask.Application.Contracts;
 using InternshipTask.Application.CQRS.ProductCAndQ.Queries.GetAllProduct;
 using InternshipTask.Application.Dto.Product;
-using InternshipTask.Application.Services.ProductService;
 using MediatR;
 
 namespace InternshipTask.Application.CQRS.ProductCAndQ.Queries

@@ -21,7 +21,7 @@ namespace InternshipTask.Identity
             services.Configure<JwtSettings>(configuration.GetSection("JwtSettings"));
 
             services.AddDbContext<IntershipTaskIdentityDbContext>(options =>
-                options.UseSqlServer(configuration.GetConnectionString("ConnectionStrings")));
+                options.UseSqlServer(configuration.GetConnectionString(("DefaultConnection"))));
 
             services.AddIdentity<ApplicationUser, IdentityRole<Guid>>(
                 options => { options.User.RequireUniqueEmail = false; }

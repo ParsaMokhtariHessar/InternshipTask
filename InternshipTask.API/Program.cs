@@ -4,6 +4,7 @@ using InternshipTask.Identity;
 using InternshipTask.Persistance;
 using InternshipTask.Persistance.Services.ProductService;
 using InternshipTask.Application.Contracts;
+using InternshipTask.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
 // Add new Services
@@ -38,6 +39,8 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
+    app.UseIdentityDatabaseMigration();
+    app.UseProductDatabaseMigration();
     app.UseSwagger();
     app.UseSwaggerUI();
 }

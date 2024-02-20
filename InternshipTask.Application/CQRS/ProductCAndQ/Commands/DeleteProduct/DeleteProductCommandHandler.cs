@@ -18,7 +18,7 @@ namespace InternshipTask.Application.CQRS.ProductCAndQ.Commands.DeleteProduct
             var validator = new DeleteProductCommandValidator(_productService);
             var validationResult = await validator.ValidateAsync(request, cancellationToken);
 
-            if (!validationResult.Errors.Any())
+            if (validationResult.Errors.Any())
             {
                 throw new BadRequestException("Invalid Product", validationResult);
             }

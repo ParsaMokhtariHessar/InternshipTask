@@ -110,23 +110,14 @@ namespace InternshipTask.Persistance.Services.ProductService
             await _context.SaveChangesAsync();
         }
 
-        public async Task<bool> IsManufactureEmailUnique(string manufactureEmail)
-        {
-            bool isUnique = await _context.Products.AllAsync(p =>
-                p.ManufactureEmail != manufactureEmail);
-
-            return isUnique;
+        public async Task<bool> DoesManufactureEmailExist(string manufactureEmail)
+        {            
+            return await _context.Products.AnyAsync(p => p.ManufactureEmail == manufactureEmail);
         }
 
-        public async Task<bool> IsProductDateUnique(DateTime productDate)
-        {
-            DateTime startDate = productDate.Date;
-            DateTime endDate = startDate.AddDays(1); // Add one day to include the entire date range
-
-            bool isUnique = await _context.Products.AllAsync(p =>
-                p.ProductDate >= startDate && p.ProductDate < endDate);
-
-            return isUnique;
+        public async Task<bool> DoesProductDateExist(DateTime productDate)
+        {              
+            return await _context.Products.AnyAsync(p => p.ProductDate.Date == productDate.Date);
         }
     }
 }

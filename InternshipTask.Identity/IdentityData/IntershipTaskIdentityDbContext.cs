@@ -9,19 +9,20 @@ namespace InternshipTask.Identity.IdentityData
     {
         public IntershipTaskIdentityDbContext()
         {
+            
         }
         public IntershipTaskIdentityDbContext(DbContextOptions<IntershipTaskIdentityDbContext> options)
             : base(options)
         {
         }
 
-        //protected override void OnConfiguring(DbContextOptionsBuilder options)
-        //{
-        //    if (!options.IsConfigured)
-        //    {
-        //        options.UseSqlServer("Server=PARSA-PC;Database=InternshipTask;Trusted_Connection=true;TrustServerCertificate=true;");
-        //    }
-        //}
+        protected override void OnConfiguring(DbContextOptionsBuilder options)
+        {
+            if (!options.IsConfigured)
+            {
+                options.UseSqlServer("Server=PARSA-PC;Database=InternshipTask;Trusted_Connection=true;TrustServerCertificate=true;");
+            }
+        }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

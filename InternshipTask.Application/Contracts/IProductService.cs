@@ -13,7 +13,8 @@ namespace InternshipTask.Application.Contracts
         Task CreateProduct(Product newProduct);
         Task UpdateProduct(Product ToBeUpdatedProduct);
         Task DeleteProduct(string ToBeDeletedProductName);
-        Task<bool> IsProductDateUnique(DateTime productDate);
-        Task<bool> IsManufactureEmailUnique(string ManufactureEmail);
+        Task<bool> DoesManufactureEmailExist(string ManufactureEmail);
+        Task<bool> DoesProductDateExist(DateTime productDate);
+        
     }
 }

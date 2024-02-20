@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace InternshipTask.API.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class ProductController : ControllerBase
@@ -47,7 +47,7 @@ namespace InternshipTask.API.Controllers
         [Route("GetByManufacturerEmail/{manufacturerEmail}")]
         public async Task<ActionResult<List<GetProductDto>>> GetProductsByManufacturerEmail(string manufacturerEmail)
         {
-            var query = new GetByManufacturerEmailQuery { ManufacturerEmail = manufacturerEmail };
+            var query = new GetProductByManufacturerEmailQuery { ManufacturerEmail = manufacturerEmail };
             var products = await _mediator.Send(query);
             return Ok(products);
         }

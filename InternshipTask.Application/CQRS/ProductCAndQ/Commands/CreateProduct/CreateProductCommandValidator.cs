@@ -21,19 +21,18 @@ namespace InternshipTask.Application.CQRS.ProductCAndQ.Commands.CreateProduct
                 .MustAsync(IsManufactureEmailUnique).WithMessage("Another Product with this {PropertyName} already exists!");
 
             RuleFor(p => p.ProductDate)
-                .NotNull().WithMessage("{PropertyName} is required")
                 .NotEmpty().WithMessage("{PropertyName} is required")
-                .MustAsync(IsProductDateUnique);
+                .MustAsync(ProductDateIsUnique);
 
             this._productService = productService;
         }
-        private Task<bool> IsProductDateUnique(DateTime ProductDate, CancellationToken token)
+        private async Task<bool> ProductDateIsUnique(DateTime ProductDate, CancellationToken token)
         {
-            return _productService.IsProductDateUnique(ProductDate);
+            return !await _productService.DoesProductDateExist(ProductDate);
         }
-        private Task<bool> IsManufactureEmailUnique(string ManufactureEmail, CancellationToken token)
+        private async Task<bool> IsManufactureEmailUnique(string ManufactureEmail, CancellationToken token)
         {
-            return _productService.IsManufactureEmailUnique(ManufactureEmail);
+            return !await _productService.DoesManufactureEmailExist(ManufactureEmail);
         }
     }
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace InternshipTask.Application.CQRS.ProductCAndQ.Queries.GetProductByEmailManufacturer
 {
-    public record GetByManufacturerEmailQuery : IRequest<List<GetProductDto>>
+    public record GetProductByManufacturerEmailQuery : IRequest<GetProductDto>
     {
         public string ManufacturerEmail { get; init; } = string.Empty;
     }

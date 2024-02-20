@@ -5,21 +5,21 @@ using MediatR;
 
 namespace InternshipTask.Application.CQRS.ProductCAndQ.Queries.GetProductByEmailManufacturer
 {
-    public class GetByManufacturerEmailQueryHandler : IRequestHandler<GetByManufacturerEmailQuery, List<GetProductDto>>
+    public class GetProductByManufacturerEmailQueryHandler : IRequestHandler<GetProductByManufacturerEmailQuery, GetProductDto>
     {
         private readonly IProductService _productService;
         private readonly IMapper _mapper;
 
-        public GetByManufacturerEmailQueryHandler(IMapper mapper, IProductService productService)
+        public GetProductByManufacturerEmailQueryHandler(IMapper mapper, IProductService productService)
         {
             _mapper = mapper;
             _productService = productService;
         }
 
-        public async Task<List<GetProductDto>> Handle(GetByManufacturerEmailQuery request, CancellationToken cancellationToken)
+        public async Task<GetProductDto> Handle(GetProductByManufacturerEmailQuery request, CancellationToken cancellationToken)
         {
-            var products = await _productService.GetProductByManufacturerEmail(request.ManufacturerEmail);
-            return _mapper.Map<List<GetProductDto>>(products);
+            var product = await _productService.GetProductByManufacturerEmail(request.ManufacturerEmail);
+            return _mapper.Map<GetProductDto>(product);
         }
     }
 }

@@ -5,9 +5,11 @@ using InternshipTask.Persistance;
 using InternshipTask.Persistance.Services.ProductService;
 using InternshipTask.Application.Contracts;
 using InternshipTask.Persistence;
+using InternshipTask.Application;
 
 var builder = WebApplication.CreateBuilder(args);
 // Add new Services
+builder.Services.AddApplicationServices();
 builder.Services.AddIdentityServices(builder.Configuration);
 builder.Services.AddPersistanceServices(builder.Configuration);
 

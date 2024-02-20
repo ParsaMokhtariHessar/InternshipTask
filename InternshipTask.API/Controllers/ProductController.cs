@@ -68,10 +68,10 @@ namespace InternshipTask.API.Controllers
         }
 
         [HttpPut]
-        [Route("UpdateProduct/{ManufacturerEmail}")]
-        public async Task<ActionResult> UpdateProducts(UpdateProductDto updatedProducts)
+        [Route("UpdateProduct")]
+        public async Task<ActionResult> UpdateProducts(UpdateProductDto updatedProduct)
         {
-            var command = new UpdateProductCommand { ToBeUpdatedProduct = updatedProducts };
+            var command = new UpdateProductCommand { ToBeUpdatedProduct = updatedProduct };
             await _mediator.Send(command);
 
             return NoContent();

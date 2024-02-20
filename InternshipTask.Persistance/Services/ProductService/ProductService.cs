@@ -41,7 +41,7 @@ namespace InternshipTask.Persistance.Services.ProductService
         public async Task<Product> GetProductByManufacturerEmail(string manufacturerEmail)
         {
 
-            var product = await _context.Products.FirstOrDefaultAsync(p => p.ManufactureEmail == manufacturerEmail);
+            var product = await _context.Products.FirstOrDefaultAsync(p => p.ManufacturerEmail == manufacturerEmail);
             if (product == null)
             {
                 // Handle the case where no product is found with the specified manufacturerEmail.
@@ -75,17 +75,16 @@ namespace InternshipTask.Persistance.Services.ProductService
 
         public async Task UpdateProduct(Product newProduct)
         {
-            var existingProduct = await _context.Products.FirstOrDefaultAsync(p => p.ManufactureEmail == newProduct.ManufactureEmail);
+            var existingProduct = await _context.Products.FirstOrDefaultAsync(p => p.ManufacturerEmail == newProduct.ManufacturerEmail);
 
             if (existingProduct == null)
             {
-                throw new ArgumentException($"Product with ManufactureEmail '{newProduct.ManufactureEmail}' not found", nameof(newProduct.ManufactureEmail));
+                throw new ArgumentException($"Product with ManufactureEmail '{newProduct.ManufacturerEmail}' not found", nameof(newProduct.ManufacturerEmail));
             }
             // Update existingProduct properties with values from newProduct
             existingProduct.Name = newProduct.Name;
             existingProduct.ProductDate = newProduct.ProductDate;
-            existingProduct.ManufacturePhone = newProduct.ManufacturePhone;
-            existingProduct.ManufactureEmail = newProduct.ManufactureEmail;
+            existingProduct.ManufacturerPhone = newProduct.ManufacturerPhone;           
             existingProduct.IsAvailable = newProduct.IsAvailable;
             existingProduct.CreatorId = newProduct.CreatorId;
 
@@ -98,7 +97,7 @@ namespace InternshipTask.Persistance.Services.ProductService
 
         public async Task DeleteProduct(string ManufactureEmail)
         {
-            var existingProduct = await _context.Products.FirstOrDefaultAsync(p => p.ManufactureEmail == ManufactureEmail);
+            var existingProduct = await _context.Products.FirstOrDefaultAsync(p => p.ManufacturerEmail == ManufactureEmail);
 
             if (existingProduct == null)
             {
@@ -110,9 +109,9 @@ namespace InternshipTask.Persistance.Services.ProductService
             await _context.SaveChangesAsync();
         }
 
-        public async Task<bool> DoesManufactureEmailExist(string manufactureEmail)
+        public async Task<bool> DoesManufacturerEmailExist(string manufacturerEmail)
         {            
-            return await _context.Products.AnyAsync(p => p.ManufactureEmail == manufactureEmail);
+            return !await _context.Products.AllAsync(p => p.ManufacturerEmail != manufacturerEmail);
         }
 
         public async Task<bool> DoesProductDateExist(DateTime productDate)

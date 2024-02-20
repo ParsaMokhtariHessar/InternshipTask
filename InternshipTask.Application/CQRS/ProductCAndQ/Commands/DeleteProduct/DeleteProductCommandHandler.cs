@@ -25,7 +25,7 @@ namespace InternshipTask.Application.CQRS.ProductCAndQ.Commands.DeleteProduct
            
             var productToDelete = await _productService.GetProductByManufacturerEmail(request.ManufacturerEmail);
 
-            if (productToDelete.ManufactureEmail == null)
+            if (productToDelete.ManufacturerEmail == null)
             {
                 throw new InvalidOperationException("ManufactureEmail is null for the product to be deleted.");
             }
@@ -35,7 +35,7 @@ namespace InternshipTask.Application.CQRS.ProductCAndQ.Commands.DeleteProduct
                 throw new InvalidOperationException($"Product with manufacturer email '{request.ManufacturerEmail}' not found");
             }
 
-            await _productService.DeleteProduct(productToDelete.ManufactureEmail);
+            await _productService.DeleteProduct(productToDelete.ManufacturerEmail);
             
             return Unit.Value;
         }

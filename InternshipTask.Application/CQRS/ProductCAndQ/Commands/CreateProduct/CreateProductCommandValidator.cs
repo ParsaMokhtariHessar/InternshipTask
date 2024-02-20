@@ -14,7 +14,7 @@ namespace InternshipTask.Application.CQRS.ProductCAndQ.Commands.CreateProduct
                 .NotNull().WithMessage("{PropertyName} is required")
                 .MaximumLength(70).WithMessage("{PropertyName} must be fewer than 70 characters");
 
-            RuleFor(p => p.ManufactureEmail)
+            RuleFor(p => p.ManufacturerEmail)
                 .NotEmpty().WithMessage("{PropertyName} is required")
                 .NotNull().WithMessage("{PropertyName} is required")
                 .EmailAddress().WithMessage("you must enter a valid {PropertyName}")
@@ -32,7 +32,7 @@ namespace InternshipTask.Application.CQRS.ProductCAndQ.Commands.CreateProduct
         }
         private async Task<bool> IsManufactureEmailUnique(string ManufactureEmail, CancellationToken token)
         {
-            return !await _productService.DoesManufactureEmailExist(ManufactureEmail);
+            return !await _productService.DoesManufacturerEmailExist(ManufactureEmail);
         }
     }
 }

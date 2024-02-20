@@ -16,13 +16,13 @@ namespace InternshipTask.Persistance.Data
         }
         public DbSet<Product> Products => Set<Product>();
 
-        //protected override void OnConfiguring(DbContextOptionsBuilder options)
-        //{
-        //   if (!options.IsConfigured)
-        //    {
-        //       options.UseSqlServer("Server=PARSA-PC;Database=InternshipTask;Trusted_Connection=true;TrustServerCertificate=true;");
-        //   }
-        //}
+        protected override void OnConfiguring(DbContextOptionsBuilder options)
+        {
+            if (!options.IsConfigured)
+            {
+                options.UseSqlServer("Server=PARSA-PC;Database=InternshipTask;Trusted_Connection=true;TrustServerCertificate=true;");
+            }
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

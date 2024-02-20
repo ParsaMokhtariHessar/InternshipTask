@@ -15,30 +15,21 @@ namespace InternshipTask.Application.CQRS.ProductCAndQ.Commands.UpdateProduct
             RuleFor(command => command.Name)
                 .NotEmpty().WithMessage("{PropertyName} is required")
                 .MaximumLength(70).WithMessage("{PropertyName} must be fewer than 70 characters");
-
-            RuleFor(command => command.ManufactureEmail)
+            RuleFor(command => command.ManufacturerEmail)
                 .NotNull().WithMessage("{PropertyName} is required")
                 .NotEmpty().WithMessage("{PropertyName} is required")
                 .EmailAddress().WithMessage("You must enter a valid {PropertyName}")
                 .MustAsync(DoesProductExists).WithMessage("Product with this {PropertyName} not found");
-
             RuleFor(command => command.ProductDate)
-                .NotEmpty().WithMessage("{PropertyName} is required")
-                .MustAsync(BeAUniqueDate).WithMessage("{PropertyName} must be a valid date");
+                .NotEmpty().WithMessage("{PropertyName} is required");
+                
 
             _productService = productService;
         }
 
         private async Task<bool> DoesProductExists(string manufactureEmail, CancellationToken cancellationToken)
         {
-            var product = await _productService.GetProductByManufacturerEmail(manufactureEmail);
-            return product != null;
+            return await _productService.DoesManufacturerEmailExist(manufactureEmail);            
         }
-        private async Task<bool> BeAUniqueDate(DateTime ProductDate, CancellationToken token)
-        {
-            var Product = await _productService.GetProductByDate(ProductDate);
-            return Product == null;
-        }
-
     }
 }

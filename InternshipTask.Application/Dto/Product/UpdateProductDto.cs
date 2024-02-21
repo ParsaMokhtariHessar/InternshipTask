@@ -12,5 +12,6 @@ namespace InternshipTask.Application.Dto.Product
         public string? ManufacturePhone { get; set; }
         public string? ManufacturerEmail { get; set; }
         public bool IsAvailable { get; set; }
+        public Guid ModifierId { get; set; }
     }
 }

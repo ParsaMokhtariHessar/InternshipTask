@@ -15,7 +15,8 @@ namespace InternshipTask.Application.MappingProfiles
         {
             CreateMap<CreateProductDto,Product>();
             CreateMap<Product,GetProductDto>();
-            CreateMap<UpdateProductDto,Product>();
+            CreateMap<UpdateProductDto,Product>()
+                .ForMember(dest => dest.CreatorId, opt => opt.MapFrom(src => src.ModifierId)); // Map ModifierId
         }
         
     }

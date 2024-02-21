@@ -15,6 +15,7 @@ namespace InternshipTask.Application.Contracts
         Task DeleteProduct(string ToBeDeletedProductName);
         Task<bool> DoesManufacturerEmailExist(string ManufactureEmail);
         Task<bool> DoesProductDateExist(DateTime productDate);
+        Task<bool> DoesIdOwnProduct(Guid Id, string ManufacturerEmail);
         
     }
 }

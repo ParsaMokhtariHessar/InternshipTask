@@ -10,5 +10,6 @@ namespace InternshipTask.Application.CQRS.ProductCAndQ.Commands.DeleteProduct
     public class DeleteProductCommand : IRequest<Unit>
     {
         public string? ManufacturerEmail { get; set; }
+        public Guid RemoverId { get; set; }
     }
 }

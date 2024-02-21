@@ -59,22 +59,21 @@ namespace InternshipTask.API.Controllers
         [Route("Create")]
         public async Task<ActionResult> CreateProduct(CreateProductDto newProduct)
         {
+            var userId = HttpContext.User.FindFirst("Id")?.Value;
+            newProduct.CreatorId = Guid.Parse(userId!);
             var command = new CreateProductCommand { ToBeCreatedProduct = newProduct };
             var response = await _mediator.Send(command);
+           return CreatedAtAction(nameof(CreateProduct), response);
 
-            if (response == Unit.Value)
-            {
-                return NoContent(); // Assuming you want to return 204 No Content for successful creation without a specific resource representation.
-            }
-
-            return CreatedAtAction(nameof(CreateProduct), response);
         }
 
         [HttpPut]
         [Route("UpdateProduct")]
-        public async Task<ActionResult> UpdateProducts(UpdateProductDto updatedProduct)
+        public async Task<ActionResult> UpdateProducts(UpdateProductDto toBeupdatedProduct)
         {
-            var command = new UpdateProductCommand { ToBeUpdatedProduct = updatedProduct };
+            var userId = HttpContext.User.FindFirst("Id")?.Value;
+            toBeupdatedProduct.ModifierId = Guid.Parse(userId!);
+            var command = new UpdateProductCommand { ToBeUpdatedProduct = toBeupdatedProduct };
             await _mediator.Send(command);
 
             return NoContent();
@@ -84,7 +83,8 @@ namespace InternshipTask.API.Controllers
         [Route("Delete/{ManufacturerEmail}")]
         public async Task<ActionResult> DeleteProduct(string ManufacturerEmail)
         {
-            var command = new DeleteProductCommand { ManufacturerEmail = ManufacturerEmail };
+            var userId = HttpContext.User.FindFirst("Id")?.Value;           
+            var command = new DeleteProductCommand { RemoverId = Guid.Parse(userId!), ManufacturerEmail = ManufacturerEmail };
             await _mediator.Send(command);
 
             return NoContent();

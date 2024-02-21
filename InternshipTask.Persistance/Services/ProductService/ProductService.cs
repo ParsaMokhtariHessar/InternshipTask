@@ -118,5 +118,15 @@ namespace InternshipTask.Persistance.Services.ProductService
         {              
             return await _context.Products.AnyAsync(p => p.ProductDate.Date == productDate.Date);
         }
+
+        public async Task<bool> DoesIdOwnProduct(Guid Id, string ManufacturerEmail)
+        {
+            var theProduct = await _context.Products.FirstOrDefaultAsync(p => p.ManufacturerEmail == ManufacturerEmail);
+            if (theProduct == null)
+            {
+                return false;
+            }
+            return theProduct.CreatorId == Id;
+        }
     }
 }

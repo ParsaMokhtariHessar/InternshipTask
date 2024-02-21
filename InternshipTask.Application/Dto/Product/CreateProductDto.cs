@@ -12,4 +12,5 @@ public class CreateProductDto
     public string? ManufacturerPhone { get; set; }
     public string? ManufacturerEmail { get; set; }
     public bool IsAvailable { get; set; }
+    public Guid CreatorId { get; set; }
 }

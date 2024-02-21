@@ -23,6 +23,9 @@ namespace InternshipTask.Application.CQRS.ProductCAndQ.Commands.CreateProduct
             RuleFor(p => p.ProductDate)
                 .NotEmpty().WithMessage("{PropertyName} is required")
                 .MustAsync(ProductDateIsUnique);
+            RuleFor(p => p.CreatorId)
+                .NotNull().WithMessage("{PropertyName} is required")
+                .NotEmpty().WithMessage("{PropertyName} is required");
 
             this._productService = productService;
         }

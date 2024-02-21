@@ -16,7 +16,7 @@ namespace InternshipTask.Identity.Configuration
             builder.HasData(
                     new IdentityRole<Guid>
                     {
-                        Id = Guid.Parse("cd1f3faf-3b03-4ced-85b8-1ad18aa1e406"),
+                        Id = Guid.Parse("2e7041ef-7b35-4710-b567-d5120a585627"),
                         Name = "UserRole",
                         NormalizedName = "USERROLE"
                     }

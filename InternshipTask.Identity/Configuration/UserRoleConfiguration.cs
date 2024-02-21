@@ -16,8 +16,9 @@ namespace InternshipTask.Identity.Configuration
             builder.HasData(
                 new IdentityUserRole<Guid>
                 {
-                    RoleId = Guid.Parse("cd1f3faf-3b03-4ced-85b8-1ad18aa1e406"),
-                    UserId = Guid.Parse("a9f2cf0b-3ef2-4ac7-ba49-94e9e9c0c0a2")
+
+                    RoleId = Guid.Parse("2e7041ef-7b35-4710-b567-d5120a585627"),
+                    UserId = Guid.Parse("99da5af7-a7c9-41a3-276a-08dc327002ac")
                 }
             );
         }

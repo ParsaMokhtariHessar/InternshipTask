@@ -4,8 +4,10 @@ using InternshipTask.Identity.IdentityModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using System.Data;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace InternshipTask.Identity.Services.AuthService
@@ -44,7 +46,7 @@ namespace InternshipTask.Identity.Services.AuthService
 
             var response = new AuthResponse
             {
-                UserId = user.UserId,
+                UserId = user.Id,
                 UserName = user.UserName!,
                 Token = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken)
             };
@@ -63,7 +65,8 @@ namespace InternshipTask.Identity.Services.AuthService
 
             if (result.Succeeded)
             {
-                return new RegistrationResponse() { UserId = user.UserId };
+                await _userManager.AddToRoleAsync(user, "UserRole");
+                return new RegistrationResponse() { UserId = user.Id };
             }
             else
             {
@@ -80,14 +83,17 @@ namespace InternshipTask.Identity.Services.AuthService
         private async Task<JwtSecurityToken> GenerateToken(ApplicationUser user)
         {
             var userClaims = await _userManager.GetClaimsAsync(user);
+            var roles = await _userManager.GetRolesAsync(user);
+            var roleClaims = roles.Select(q => new Claim(ClaimTypes.Role, q)).ToList();
 
-            var claims = new List<Claim>
+            var claims = new[]
             {
-                new Claim("UserId", user.UserId.ToString()),
-                new Claim(ClaimTypes.Name, user.UserName!)
+                new Claim(JwtRegisteredClaimNames.Sub, user.UserName!),
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                new Claim("Id", user.Id.ToString())
             }
-            .Union(userClaims);
-
+            .Union(userClaims)
+            .Union(roleClaims);
             var symmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtSettings.Key));
 
             var signingCredentials = new SigningCredentials(symmetricSecurityKey, SecurityAlgorithms.HmacSha256);

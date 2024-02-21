@@ -47,7 +47,7 @@ namespace InternshipTask.Identity.Services.UserService
 
             return new UserRole
             {
-                UserId = userRole.UserId,
+                UserId = userRole.Id,
                 UserName = userRole.UserName?? string.Empty,
             };
         }

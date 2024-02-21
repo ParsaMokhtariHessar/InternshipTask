@@ -4,6 +4,7 @@ using InternshipTask.Identity.IdentityData;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace InternshipTask.Identity.Migrations
 {
     [DbContext(typeof(IntershipTaskIdentityDbContext))]
-    partial class IntershipTaskIdentityDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240220234836_RemovingUserId")]
+    partial class RemovingUserId
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -90,19 +93,18 @@ namespace InternshipTask.Identity.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("99da5af7-a7c9-41a3-276a-08dc327002ac"),
+                            Id = new Guid("a9f2cf0b-3ef2-4ac7-ba49-94e9e9c0c0a2"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "1e4c2f11-154f-4be9-86fd-feadbe6fb26f",
+                            ConcurrencyStamp = "99d604e6-6e41-45e3-a0b6-5d16bf6835dc",
                             Email = "",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "",
-                            NormalizedUserName = "PARSAA",
-                            PasswordHash = "$2a$11$X6G/PMq6vmKcd8gB1KpTu.LfPE8w/Z4LKn78DmhAg3j1/cgmxnofW",
+                            NormalizedUserName = "PARSA",
+                            PasswordHash = "$2a$11$3uX33CnjEASDcoZwQ9Eii.o6VbgrQk5T3Ej2Ov0Rr.HPxuSEWYcrS",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "F5HE5ITOIQO2N3S5ZHUONLICGAQYI56U",
                             TwoFactorEnabled = false,
-                            UserName = "parsaa"
+                            UserName = "parsa"
                         });
                 });
 
@@ -136,7 +138,7 @@ namespace InternshipTask.Identity.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("2e7041ef-7b35-4710-b567-d5120a585627"),
+                            Id = new Guid("cd1f3faf-3b03-4ced-85b8-1ad18aa1e406"),
                             Name = "UserRole",
                             NormalizedName = "USERROLE"
                         });
@@ -228,8 +230,8 @@ namespace InternshipTask.Identity.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = new Guid("99da5af7-a7c9-41a3-276a-08dc327002ac"),
-                            RoleId = new Guid("2e7041ef-7b35-4710-b567-d5120a585627")
+                            UserId = new Guid("a9f2cf0b-3ef2-4ac7-ba49-94e9e9c0c0a2"),
+                            RoleId = new Guid("cd1f3faf-3b03-4ced-85b8-1ad18aa1e406")
                         });
                 });
 

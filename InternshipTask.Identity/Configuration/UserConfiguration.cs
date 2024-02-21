@@ -11,8 +11,10 @@ namespace InternshipTask.Identity.Configuration
             builder.HasData(
                  new ApplicationUser
                  {
-                     Id = Guid.Parse("a9f2cf0b-3ef2-4ac7-ba49-94e9e9c0c0a2"),
-                     UserName = "parsa",
+                     Id = Guid.Parse("99da5af7-a7c9-41a3-276a-08dc327002ac"),
+                     UserName = "parsaa",
+                     NormalizedUserName = "PARSAA",
+                     SecurityStamp = "F5HE5ITOIQO2N3S5ZHUONLICGAQYI56U",
                      PasswordHash = BCrypt.Net.BCrypt.HashPassword("P@ssword1")
                  }
             );

@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace InternshipTask.API.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class ProductController : ControllerBase
@@ -27,6 +27,7 @@ namespace InternshipTask.API.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         [Route("GetAll")]
         public async Task<ActionResult<List<GetProductDto>>> GetProducts()
         {
@@ -35,6 +36,7 @@ namespace InternshipTask.API.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         [Route("GetByName/{name}")]
         public async Task<ActionResult<List<GetProductDto>>> GetProductsByName(string name)
         {
@@ -44,6 +46,7 @@ namespace InternshipTask.API.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         [Route("GetByManufacturerEmail/{manufacturerEmail}")]
         public async Task<ActionResult<List<GetProductDto>>> GetProductsByManufacturerEmail(string manufacturerEmail)
         {

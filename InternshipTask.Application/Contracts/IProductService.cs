@@ -10,6 +10,7 @@ namespace InternshipTask.Application.Contracts
         Task<List<Product>> GetProductByName(string ProductName);
         Task<Product> GetProductByManufacturerEmail(string manufacturerEmail);
         Task<Product> GetProductByDate(DateTime productDate);
+        Task<List<Product>> GetProductByCreator(Guid CreatorId);
         Task CreateProduct(Product newProduct);
         Task UpdateProduct(Product ToBeUpdatedProduct);
         Task DeleteProduct(string ToBeDeletedProductName);

@@ -67,6 +67,11 @@ namespace InternshipTask.Persistance.Services.ProductService
             return product;
         }
 
+        public async Task<List<Product>> GetProductByCreator(Guid CreatorId)
+        {
+            return await _context.Products.Where(p => p.CreatorId == CreatorId).ToListAsync();
+        }
+
         public async Task CreateProduct(Product newProduct)
         {
             var createdProductEntry = await _context.Products.AddAsync(newProduct);
@@ -127,6 +132,6 @@ namespace InternshipTask.Persistance.Services.ProductService
                 return false;
             }
             return theProduct.CreatorId == Id;
-        }
+        }      
     }
 }

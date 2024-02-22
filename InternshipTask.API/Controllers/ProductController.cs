@@ -4,6 +4,7 @@ using InternshipTask.Application.CQRS.ProductCAndQ.Commands.CreateProduct;
 using InternshipTask.Application.CQRS.ProductCAndQ.Commands.DeleteProduct;
 using InternshipTask.Application.CQRS.ProductCAndQ.Commands.UpdateProduct;
 using InternshipTask.Application.CQRS.ProductCAndQ.Queries.GetAllProduct;
+using InternshipTask.Application.CQRS.ProductCAndQ.Queries.GetProductByCreatorName;
 using InternshipTask.Application.CQRS.ProductCAndQ.Queries.GetProductByEmailManufacturer;
 using InternshipTask.Application.CQRS.ProductCAndQ.Queries.GetProductByName;
 using InternshipTask.Application.Dto.Product;
@@ -51,6 +52,16 @@ namespace InternshipTask.API.Controllers
         public async Task<ActionResult<List<GetProductDto>>> GetProductsByManufacturerEmail(string manufacturerEmail)
         {
             var query = new GetProductByManufacturerEmailQuery { ManufacturerEmail = manufacturerEmail };
+            var products = await _mediator.Send(query);
+            return Ok(products);
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        [Route("GetByCreator/{CreatorName}")]
+        public async Task<ActionResult<List<GetProductDto>>> GetProductsByCreator(string CreatorName)
+        {
+            var query = new GetProductByCreatorNameQuery { CreatorName = CreatorName };
             var products = await _mediator.Send(query);
             return Ok(products);
         }

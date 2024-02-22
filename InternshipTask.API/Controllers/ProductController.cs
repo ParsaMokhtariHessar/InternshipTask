@@ -8,6 +8,7 @@ using InternshipTask.Application.CQRS.ProductCAndQ.Queries.GetProductByCreatorNa
 using InternshipTask.Application.CQRS.ProductCAndQ.Queries.GetProductByEmailManufacturer;
 using InternshipTask.Application.CQRS.ProductCAndQ.Queries.GetProductByName;
 using InternshipTask.Application.Dto.Product;
+using InternshipTask.Identity.Services.UserService;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -21,6 +22,7 @@ namespace InternshipTask.API.Controllers
     {
         private readonly IMapper _mapper;
         private readonly IMediator _mediator;
+        //private readonly IUserService _userService;
         public ProductController(IProductService productService, IMapper mapper,IMediator mediator)
         {
             _mapper = mapper;

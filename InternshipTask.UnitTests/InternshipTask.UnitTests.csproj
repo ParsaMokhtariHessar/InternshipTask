@@ -22,4 +22,12 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="CQRS\Product\Queries\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\InternshipTask.Application\InternshipTask.Application.csproj" />
+  </ItemGroup>
+
 </Project>
